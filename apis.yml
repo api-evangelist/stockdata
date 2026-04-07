@@ -1,8 +1,8 @@
 aid: stockdata
 name: StockData
 description: >-
-  Access the best financial news from global markets, plus US market history,
-  crypto and forex data. DOCUMENTATION 
+  Access the best financial news from global markets, plus US market history, crypto
+  and forex data. DOCUMENTATION.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -18,8 +18,8 @@ apis:
   - aid: stockdata:stockdata
     name: StockData
     description: >-
-      Access the best financial news from global markets, plus US market
-      history, crypto and forex data. DOCUMENTATION 
+      Access the best financial news from global markets, plus US market history,
+      crypto and forex data. DOCUMENTATION.
     humanURL: https://www.stockdata.org/
     tags:
       - Finance
