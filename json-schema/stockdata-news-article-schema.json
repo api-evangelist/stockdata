@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.stockdata.org/v1/schema/news-article",
+  "title": "StockData News Article",
+  "description": "Financial news article with entity-level sentiment analysis from StockData.org.",
+  "type": "object",
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "description": "Unique identifier for the article.",
+      "examples": ["abc123e4-5678-90ab-cdef-1234567890ab"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Article headline.",
+      "examples": ["Apple Reports Record Q2 Revenue Beating Analyst Estimates"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Article summary or excerpt.",
+      "examples": ["Apple Inc. reported quarterly revenue of $97.3 billion..."]
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Comma-separated keywords.",
+      "examples": ["Apple, earnings, revenue, iPhone, Wall Street"]
+    },
+    "snippet": {
+      "type": "string",
+      "description": "Short excerpt from the article body."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the original article."
+    },
+    "image_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the article's featured image."
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code (ISO 639-1).",
+      "examples": ["en", "de", "fr"]
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Publication timestamp in ISO 8601 format."
+    },
+    "source": {
+      "type": "string",
+      "description": "News source domain.",
+      "examples": ["reuters.com", "bloomberg.com"]
+    },
+    "relevance_score": {
+      "type": ["number", "null"],
+      "description": "Article relevance score to the query (0–1).",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "entities": {
+      "type": "array",
+      "description": "Financial entities mentioned in the article.",
+      "items": {
+        "$ref": "#/definitions/NewsEntity"
+      }
+    }
+  },
+  "required": ["uuid", "title", "published_at"],
+  "definitions": {
+    "NewsEntity": {
+      "type": "object",
+      "description": "A financial entity (stock, ETF, index, etc.) identified in a news article.",
+      "properties": {
+        "symbol": {
+          "type": "string",
+          "description": "Entity ticker symbol.",
+          "examples": ["AAPL"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Entity name.",
+          "examples": ["Apple Inc."]
+        },
+        "exchange": {
+          "type": "string",
+          "description": "Exchange short code.",
+          "examples": ["NASDAQ"]
+        },
+        "country": {
+          "type": "string",
+          "description": "Country code (ISO 3166-1 alpha-2).",
+          "examples": ["US"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Entity type.",
+          "enum": ["equity", "etf", "index", "mutual_fund", "currency", "cryptocurrency"]
+        },
+        "industry": {
+          "type": "string",
+          "description": "Industry classification.",
+          "examples": ["Technology", "Financial Services"]
+        },
+        "match_score": {
+          "type": "number",
+          "description": "Confidence score for entity identification (0–1).",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "sentiment_score": {
+          "type": "number",
+          "description": "Entity sentiment score for this article (-1 very negative to 1 very positive).",
+          "minimum": -1,
+          "maximum": 1
+        }
+      },
+      "required": ["symbol", "sentiment_score"]
+    }
+  }
+}

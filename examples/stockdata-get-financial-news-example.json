@@ -1,0 +1,60 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.stockdata.org/v1/news/all",
+    "parameters": {
+      "symbols": "AAPL",
+      "sentiment_gte": "0.3",
+      "language": "en",
+      "limit": "5",
+      "api_token": "YOUR_API_TOKEN"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "meta": {
+        "found": 1423,
+        "returned": 5,
+        "limit": 5,
+        "page": 1
+      },
+      "data": [
+        {
+          "uuid": "3d5e7a8b-1234-5678-abcd-ef0123456789",
+          "title": "Apple Reports Record Q2 Revenue, iPhone Sales Surge",
+          "description": "Apple Inc. exceeded analyst expectations with Q2 revenue of $97.3 billion, driven by strong iPhone 17 sales and services growth.",
+          "keywords": "Apple, earnings, revenue, iPhone, Wall Street",
+          "snippet": "Apple Inc. on Thursday reported second-quarter revenue of $97.3 billion...",
+          "url": "https://www.reuters.com/technology/apple-q2-2026",
+          "image_url": "https://www.reuters.com/images/apple-hq.jpg",
+          "language": "en",
+          "published_at": "2026-05-01T21:00:00+00:00",
+          "source": "reuters.com",
+          "relevance_score": 0.98,
+          "entities": [
+            {
+              "symbol": "AAPL",
+              "name": "Apple Inc.",
+              "exchange": "NASDAQ",
+              "exchange_long": "NASDAQ Global Select Market",
+              "mic_code": "XNAS",
+              "country": "US",
+              "type": "equity",
+              "industry": "Technology",
+              "match_score": 0.99,
+              "sentiment_score": 0.72,
+              "highlights": [
+                {
+                  "highlight": "Apple exceeded analyst expectations with record Q2 revenue",
+                  "sentiment": 0.85,
+                  "highlighted_in": "title"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

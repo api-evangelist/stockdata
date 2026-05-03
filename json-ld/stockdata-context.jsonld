@@ -1,0 +1,51 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "stockdata": "https://api.stockdata.org/v1/vocab#",
+    "fibo": "https://spec.edmcouncil.org/fibo/ontology/",
+
+    "ticker": "stockdata:ticker",
+    "price": "stockdata:price",
+    "day_high": "stockdata:dayHigh",
+    "day_low": "stockdata:dayLow",
+    "day_open": "stockdata:dayOpen",
+    "52_week_high": "stockdata:fiftyTwoWeekHigh",
+    "52_week_low": "stockdata:fiftyTwoWeekLow",
+    "market_cap": "stockdata:marketCap",
+    "volume": "stockdata:volume",
+    "previous_close_price": "stockdata:previousClosePrice",
+    "last_trade_time": "stockdata:lastTradeTime",
+    "is_extended_hours_price": "stockdata:isExtendedHoursPrice",
+    "mic_code": "stockdata:micCode",
+    "exchange_short": "stockdata:exchangeShort",
+
+    "sentiment_score": "stockdata:sentimentScore",
+    "match_score": "stockdata:matchScore",
+    "relevance_score": "stockdata:relevanceScore",
+    "entity_key": "stockdata:entityKey",
+    "total_documents": "stockdata:totalDocuments",
+    "sentiment_avg": "stockdata:sentimentAverage",
+
+    "published_at": "datePublished",
+    "source": "publisher",
+    "snippet": "description",
+    "image_url": "image",
+    "uuid": "identifier",
+
+    "Quote": "stockdata:Quote",
+    "OHLCV": "stockdata:OHLCV",
+    "NewsArticle": "Article",
+    "NewsEntity": "stockdata:NewsEntity",
+    "Entity": "stockdata:FinancialEntity",
+    "Split": "stockdata:StockSplit",
+    "Dividend": "stockdata:Dividend",
+
+    "name": "name",
+    "type": "@type",
+    "currency": "currency",
+    "country": "countryOfOrigin",
+    "language": "inLanguage",
+    "industry": "industry",
+    "url": "url"
+  }
+}

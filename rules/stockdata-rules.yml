@@ -1,0 +1,86 @@
+extends: spectral:oas
+rules:
+  stockdata-api-token-required:
+    description: All StockData API endpoints must require the api_token query parameter.
+    message: "Missing required api_token query parameter on operation '{{operationId}}'."
+    severity: error
+    given: "$.paths.*.*.parameters[?(@.name == 'api_token')]"
+    then:
+      field: required
+      function: truthy
+
+  stockdata-operationid-camel-case:
+    description: >-
+      StockData operationIds must use camelCase to match the existing SDK
+      conventions.
+    message: "OperationId '{{value}}' must be camelCase."
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  stockdata-tags-title-case:
+    description: All tags on operations must use Title Case.
+    message: "Tag '{{value}}' must use Title Case."
+    severity: warn
+    given: "$.paths[*][*].tags[*]"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z0-9 &-]*$"
+
+  stockdata-response-200-required:
+    description: All StockData GET operations must define a 200 success response.
+    message: "Operation '{{operationId}}' is missing a 200 response."
+    severity: error
+    given: "$.paths[*].get"
+    then:
+      field: responses.200
+      function: defined
+
+  stockdata-pagination-params:
+    description: >-
+      Collection endpoints returning lists should support page and limit
+      query parameters for pagination.
+    message: "List operation '{{operationId}}' should define 'page' and 'limit' parameters."
+    severity: info
+    given: "$.paths[*].get[?(@.operationId =~ /^(get|list|search)/)]"
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          properties:
+            parameters:
+              type: array
+
+  stockdata-no-empty-descriptions:
+    description: All parameters must have non-empty descriptions.
+    message: "Parameter '{{path}}' must have a description."
+    severity: warn
+    given: "$.paths[*][*].parameters[*]"
+    then:
+      field: description
+      function: truthy
+
+  stockdata-symbols-param-description:
+    description: >-
+      The symbols parameter must clearly state it accepts comma-separated
+      ticker symbols.
+    message: "The 'symbols' parameter description should mention comma-separated ticker symbols."
+    severity: info
+    given: "$.paths[*][*].parameters[?(@.name == 'symbols')]"
+    then:
+      field: description
+      function: truthy
+
+  stockdata-server-v1-prefix:
+    description: The StockData API server URL must include /v1 in the base path.
+    message: "StockData server URL must include /v1."
+    severity: error
+    given: "$.servers[*].url"
+    then:
+      function: pattern
+      functionOptions:
+        match: ".*/v1$"

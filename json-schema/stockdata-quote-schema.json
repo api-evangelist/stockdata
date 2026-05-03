@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.stockdata.org/v1/schema/quote",
+  "title": "StockData Quote",
+  "description": "Real-time stock quote data from StockData.org.",
+  "type": "object",
+  "properties": {
+    "ticker": {
+      "type": "string",
+      "description": "Stock ticker symbol (e.g., AAPL, MSFT).",
+      "examples": ["AAPL", "MSFT", "TSLA"]
+    },
+    "name": {
+      "type": "string",
+      "description": "Company or entity name.",
+      "examples": ["Apple Inc.", "Microsoft Corporation"]
+    },
+    "exchange_short": {
+      "type": "string",
+      "description": "Short exchange identifier.",
+      "examples": ["NASDAQ", "NYSE"]
+    },
+    "mic_code": {
+      "type": "string",
+      "description": "Market Identifier Code (MIC) per ISO 10383.",
+      "examples": ["XNAS", "XNYS"]
+    },
+    "currency": {
+      "type": "string",
+      "description": "Trading currency (ISO 4217).",
+      "examples": ["USD"]
+    },
+    "price": {
+      "type": "number",
+      "description": "Current trading price.",
+      "minimum": 0,
+      "examples": [178.45]
+    },
+    "day_high": {
+      "type": "number",
+      "description": "Intraday high price.",
+      "minimum": 0,
+      "examples": [180.12]
+    },
+    "day_low": {
+      "type": "number",
+      "description": "Intraday low price.",
+      "minimum": 0,
+      "examples": [176.33]
+    },
+    "day_open": {
+      "type": "number",
+      "description": "Day opening price.",
+      "minimum": 0,
+      "examples": [177.50]
+    },
+    "52_week_high": {
+      "type": "number",
+      "description": "52-week high price.",
+      "minimum": 0,
+      "examples": [199.62]
+    },
+    "52_week_low": {
+      "type": "number",
+      "description": "52-week low price.",
+      "minimum": 0,
+      "examples": [124.17]
+    },
+    "market_cap": {
+      "type": "integer",
+      "description": "Market capitalization in USD.",
+      "minimum": 0,
+      "examples": [2780000000000]
+    },
+    "last_trade_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of last trade.",
+      "examples": ["2026-05-02T16:00:00+00:00"]
+    },
+    "is_extended_hours_price": {
+      "type": "boolean",
+      "description": "True if the price reflects extended hours trading.",
+      "examples": [false]
+    },
+    "volume": {
+      "type": "integer",
+      "description": "Trading volume for the current session.",
+      "minimum": 0,
+      "examples": [54321000]
+    },
+    "previous_close_price": {
+      "type": "number",
+      "description": "Previous session closing price.",
+      "minimum": 0,
+      "examples": [177.25]
+    }
+  },
+  "required": ["ticker", "price"]
+}

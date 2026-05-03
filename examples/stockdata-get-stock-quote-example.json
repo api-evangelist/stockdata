@@ -1,0 +1,59 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.stockdata.org/v1/data/quote",
+    "parameters": {
+      "symbols": "AAPL,MSFT",
+      "api_token": "YOUR_API_TOKEN"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "meta": {
+        "found": 2,
+        "returned": 2,
+        "limit": 10,
+        "page": 1
+      },
+      "data": [
+        {
+          "ticker": "AAPL",
+          "name": "Apple Inc.",
+          "exchange_short": "NASDAQ",
+          "mic_code": "XNAS",
+          "currency": "USD",
+          "price": 178.45,
+          "day_high": 180.12,
+          "day_low": 176.33,
+          "day_open": 177.50,
+          "52_week_high": 199.62,
+          "52_week_low": 124.17,
+          "market_cap": 2780000000000,
+          "last_trade_time": "2026-05-02T16:00:00+00:00",
+          "is_extended_hours_price": false,
+          "volume": 54321000,
+          "previous_close_price": 177.25
+        },
+        {
+          "ticker": "MSFT",
+          "name": "Microsoft Corporation",
+          "exchange_short": "NASDAQ",
+          "mic_code": "XNAS",
+          "currency": "USD",
+          "price": 412.80,
+          "day_high": 415.20,
+          "day_low": 410.50,
+          "day_open": 411.30,
+          "52_week_high": 468.35,
+          "52_week_low": 309.45,
+          "market_cap": 3070000000000,
+          "last_trade_time": "2026-05-02T16:00:00+00:00",
+          "is_extended_hours_price": false,
+          "volume": 22145000,
+          "previous_close_price": 410.95
+        }
+      ]
+    }
+  }
+}

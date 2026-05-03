@@ -1,0 +1,120 @@
+vocabulary:
+  title: StockData Vocabulary
+  description: >-
+    Domain vocabulary for StockData.org API covering financial market data,
+    price series, corporate actions, news sentiment, and entity classification.
+  version: "1.0"
+  created: "2026-05-02"
+  modified: "2026-05-02"
+  source: https://www.stockdata.org/documentation
+
+terms:
+  - term: Ticker Symbol
+    definition: >-
+      An abbreviation used to uniquely identify a publicly traded company or
+      financial instrument on a stock exchange (e.g., AAPL for Apple Inc.).
+    aliases: [symbol, ticker]
+    tags: [Market Data, Equities]
+
+  - term: OHLCV
+    definition: >-
+      Open, High, Low, Close, Volume — the standard five data points recorded
+      for each time period in financial price series data.
+    aliases: [candlestick data, bar data]
+    tags: [Market Data, Technical Analysis]
+
+  - term: Intraday Data
+    definition: >-
+      Price and volume data recorded at sub-daily intervals (minute or hour)
+      within a single trading session.
+    tags: [Market Data, Technical Analysis]
+
+  - term: End-of-Day Data
+    definition: >-
+      Consolidated price and volume data recorded at the close of each trading
+      day, week, month, quarter, or year.
+    aliases: [EOD, daily data]
+    tags: [Market Data, Historical Data]
+
+  - term: Adjusted Data
+    definition: >-
+      Historical price data that has been retroactively modified to account for
+      corporate actions such as stock splits and dividends, enabling accurate
+      long-term price comparisons.
+    aliases: [split-adjusted, adjusted close]
+    tags: [Market Data, Corporate Actions]
+
+  - term: Extended Hours
+    definition: >-
+      Trading activity outside regular market hours, including pre-market
+      (typically 4am–9:30am ET) and after-hours (4pm–8pm ET) sessions.
+    aliases: [pre-market, after-hours]
+    tags: [Market Data, Trading]
+
+  - term: Stock Split
+    definition: >-
+      A corporate action where a company divides existing shares into multiple
+      new shares to increase share count while reducing per-share price proportionally.
+    tags: [Corporate Actions, Equities]
+
+  - term: Dividend
+    definition: >-
+      A distribution of a portion of a company's earnings to shareholders,
+      expressed as a per-share cash amount.
+    tags: [Corporate Actions, Income]
+
+  - term: Market Capitalization
+    definition: >-
+      The total market value of a company's outstanding shares, calculated as
+      share price multiplied by total shares outstanding.
+    aliases: [market cap]
+    tags: [Equities, Valuation]
+
+  - term: Sentiment Score
+    definition: >-
+      A numerical measure of the positive or negative tone of a news article
+      toward a specific entity, ranging from -1 (very negative) to +1 (very positive).
+    tags: [News, Sentiment Analysis, NLP]
+
+  - term: Relevance Score
+    definition: >-
+      A measure of how relevant a news article is to a specific search query
+      or entity filter, ranging from 0 (not relevant) to 1 (highly relevant).
+    tags: [News, Search]
+
+  - term: Entity
+    definition: >-
+      A financially traded or tracked instrument recognized in news articles,
+      including equities, ETFs, indices, mutual funds, currencies, and cryptocurrencies.
+    tags: [Entities, Classification]
+
+  - term: MIC Code
+    definition: >-
+      Market Identifier Code (ISO 10383) — a standardized four-character code
+      identifying a stock exchange or trading platform (e.g., XNAS for NASDAQ).
+    tags: [Market Data, Standards]
+
+  - term: Trending Entity
+    definition: >-
+      A financial entity identified as having unusually high news mention volume
+      within a given time window, potentially indicating market-moving activity.
+    tags: [News, Sentiment Analysis]
+
+  - term: News Source
+    definition: >-
+      A media outlet, publisher, or newswire that contributes articles to the
+      StockData news feed. StockData aggregates 5,000+ sources in 30+ languages.
+    tags: [News, Data Sources]
+
+  - term: API Token
+    definition: >-
+      A unique credential string issued by StockData upon registration that must
+      be passed as the api_token query parameter to authenticate all API requests.
+    aliases: [api_token, access token]
+    tags: [Authentication, Security]
+
+  - term: Rate Limit
+    definition: >-
+      The maximum number of API requests permitted per time period under a
+      given subscription plan. Exceeding the rate limit returns HTTP 429.
+    tags: [API Management, Quotas]

@@ -1,0 +1,38 @@
+{
+  "title": "StockData Quote Structure",
+  "description": "Document structure for stock quote responses from the StockData API.",
+  "structure": {
+    "meta": {
+      "type": "object",
+      "description": "Pagination and request metadata.",
+      "fields": {
+        "found": { "type": "integer", "description": "Total records matching the query." },
+        "returned": { "type": "integer", "description": "Records returned in this page." },
+        "limit": { "type": "integer", "description": "Maximum records per page." },
+        "page": { "type": "integer", "description": "Current page number." }
+      }
+    },
+    "data": {
+      "type": "array",
+      "description": "Array of stock quote records.",
+      "items": {
+        "ticker": { "type": "string", "description": "Stock ticker symbol." },
+        "name": { "type": "string", "description": "Company name." },
+        "exchange_short": { "type": "string", "description": "Exchange code." },
+        "mic_code": { "type": "string", "description": "Market Identifier Code." },
+        "currency": { "type": "string", "description": "ISO 4217 currency code." },
+        "price": { "type": "number", "description": "Current price." },
+        "day_high": { "type": "number", "description": "Intraday high." },
+        "day_low": { "type": "number", "description": "Intraday low." },
+        "day_open": { "type": "number", "description": "Day open price." },
+        "52_week_high": { "type": "number", "description": "52-week high price." },
+        "52_week_low": { "type": "number", "description": "52-week low price." },
+        "market_cap": { "type": "integer", "description": "Market capitalization in USD." },
+        "last_trade_time": { "type": "string", "format": "date-time", "description": "Last trade timestamp." },
+        "is_extended_hours_price": { "type": "boolean", "description": "Extended hours flag." },
+        "volume": { "type": "integer", "description": "Current session volume." },
+        "previous_close_price": { "type": "number", "description": "Prior session close." }
+      }
+    }
+  }
+}

@@ -1,0 +1,303 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: StockData Market Data and Intelligence
+  description: >-
+    Unified market data and financial intelligence workflow combining real-time
+    stock quotes, historical price data, corporate actions, and AI-enriched news
+    sentiment analysis. Designed for quantitative analysts, algorithmic traders,
+    and financial application developers who need comprehensive market data with
+    sentiment context in a single integration.
+  tags:
+    - Finance
+    - Financial Data
+    - Stock Market
+    - Market Data
+    - News
+    - Sentiment Analysis
+    - Algorithmic Trading
+  created: "2026-05-02"
+  modified: "2026-05-02"
+
+binds:
+  - namespace: env
+    keys:
+      STOCKDATA_API_TOKEN: STOCKDATA_API_TOKEN
+
+capability:
+  consumes:
+    - import: stockdata
+      location: ./shared/stockdata.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: market-intelligence-api
+      description: >-
+        Unified REST API for comprehensive market data and news intelligence.
+      resources:
+        - path: /v1/quotes
+          name: quotes
+          description: Real-time stock prices for US-listed equities.
+          operations:
+            - method: GET
+              name: get-stock-quote
+              description: Get real-time prices for one or more US-listed stocks.
+              call: "stockdata.get-stock-quote"
+              with:
+                symbols: "rest.symbols"
+                extended_hours: "rest.extended_hours"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/intraday
+          name: intraday-data
+          description: Historical intraday OHLCV data.
+          operations:
+            - method: GET
+              name: get-intraday-adjusted
+              description: Get split-adjusted intraday data with minute or hour resolution.
+              call: "stockdata.get-intraday-adjusted"
+              with:
+                symbols: "rest.symbols"
+                interval: "rest.interval"
+                date_from: "rest.date_from"
+                date_to: "rest.date_to"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/eod
+          name: eod-data
+          description: Historical end-of-day stock data.
+          operations:
+            - method: GET
+              name: get-end-of-day-data
+              description: Get historical end-of-day OHLCV data at daily to yearly intervals.
+              call: "stockdata.get-end-of-day-data"
+              with:
+                symbols: "rest.symbols"
+                interval: "rest.interval"
+                date_from: "rest.date_from"
+                date_to: "rest.date_to"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/splits
+          name: splits
+          description: Historical stock split events.
+          operations:
+            - method: GET
+              name: get-stock-splits
+              description: Retrieve historical stock split records.
+              call: "stockdata.get-stock-splits"
+              with:
+                symbols: "rest.symbols"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/dividends
+          name: dividends
+          description: Historical dividend payments.
+          operations:
+            - method: GET
+              name: get-stock-dividends
+              description: Retrieve historical dividend payment records.
+              call: "stockdata.get-stock-dividends"
+              with:
+                symbols: "rest.symbols"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/news
+          name: news
+          description: Global financial news with sentiment analysis.
+          operations:
+            - method: GET
+              name: get-financial-news
+              description: Get financial news with entity-level sentiment scoring.
+              call: "stockdata.get-financial-news"
+              with:
+                symbols: "rest.symbols"
+                search: "rest.search"
+                sentiment_gte: "rest.sentiment_gte"
+                language: "rest.language"
+                page: "rest.page"
+                limit: "rest.limit"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/news/trending
+          name: trending-entities
+          description: Trending financial entities by news volume.
+          operations:
+            - method: GET
+              name: get-trending-entities
+              description: Identify trending entities by news volume and sentiment.
+              call: "stockdata.get-trending-entities"
+              with:
+                group_by: "rest.group_by"
+                sentiment_gte: "rest.sentiment_gte"
+                min_doc_count: "rest.min_doc_count"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/entities
+          name: entities
+          description: Financial entity search.
+          operations:
+            - method: GET
+              name: search-entities
+              description: Search for financial entities by name, symbol, type, or industry.
+              call: "stockdata.search-entities"
+              with:
+                search: "rest.search"
+                types: "rest.types"
+                industries: "rest.industries"
+                countries: "rest.countries"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: market-intelligence-mcp
+      transport: http
+      description: >-
+        MCP server for AI-assisted market data analysis, news sentiment
+        interpretation, and financial research workflows.
+      tools:
+        - name: get-stock-quote
+          description: >-
+            Get real-time stock prices for US-listed equities. Use when a user
+            asks about current stock prices, market cap, or trading volume.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-stock-quote"
+          with:
+            symbols: "tools.symbols"
+            extended_hours: "tools.extended_hours"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-intraday-data
+          description: >-
+            Get split-adjusted historical intraday OHLCV data at minute or hour
+            intervals. Use for chart data, technical analysis, or volatility studies.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-intraday-adjusted"
+          with:
+            symbols: "tools.symbols"
+            interval: "tools.interval"
+            date_from: "tools.date_from"
+            date_to: "tools.date_to"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-historical-eod-data
+          description: >-
+            Get historical end-of-day OHLCV data for long-term trend analysis,
+            backtesting, and performance attribution.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-end-of-day-data"
+          with:
+            symbols: "tools.symbols"
+            interval: "tools.interval"
+            date_from: "tools.date_from"
+            date_to: "tools.date_to"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-stock-splits
+          description: >-
+            Retrieve historical stock split information. Use for adjusting
+            historical price series or understanding share dilution events.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-stock-splits"
+          with:
+            symbols: "tools.symbols"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-dividends
+          description: >-
+            Get historical dividend records. Use for calculating total return,
+            dividend yield analysis, or income-focused portfolio research.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-stock-dividends"
+          with:
+            symbols: "tools.symbols"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-financial-news
+          description: >-
+            Get global financial news with entity-level sentiment scoring.
+            Use to gauge market sentiment, find relevant news for a stock,
+            or analyze news impact on securities.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-financial-news"
+          with:
+            symbols: "tools.symbols"
+            search: "tools.search"
+            sentiment_gte: "tools.sentiment_gte"
+            language: "tools.language"
+            page: "tools.page"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: get-trending-entities
+          description: >-
+            Identify the most-talked-about financial entities in recent news.
+            Use for market awareness, discovering momentum stocks, or
+            monitoring news flow across sectors.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.get-trending-entities"
+          with:
+            group_by: "tools.group_by"
+            sentiment_gte: "tools.sentiment_gte"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: search-entities
+          description: >-
+            Search for financial entities (stocks, ETFs, indices, crypto,
+            currencies) by name, symbol, industry, or country.
+          hints:
+            readOnly: true
+            idempotent: true
+          call: "stockdata.search-entities"
+          with:
+            search: "tools.search"
+            types: "tools.types"
+            industries: "tools.industries"
+            countries: "tools.countries"
+          outputParameters:
+            - type: object
+              mapping: "$."
