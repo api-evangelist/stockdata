@@ -51,7 +51,7 @@ common:
     url: https://www.stockdata.org/
   - type: Documentation
     url: https://www.stockdata.org/documentation
-  - type: Sign Up
+  - type: SignUp
     url: https://www.stockdata.org/register
   - type: Website
     url: https://www.stockdata.org/
