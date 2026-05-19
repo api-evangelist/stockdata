@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: StockData API — Entities
+  description: 'StockData API — Entities. 3 operations. Lead operation: List Industries. Self-contained Naftiko capability
+    covering one Stockdata business surface.'
+  tags:
+  - Stockdata
+  - Entities
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    STOCKDATA_API_KEY: STOCKDATA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: stockdata-entities
+    baseUri: https://api.stockdata.org/v1
+    description: StockData API — Entities business capability. Self-contained, no shared references.
+    resources:
+    - name: entity-industry-list
+      path: /entity/industry/list
+      operations:
+      - name: listindustries
+        method: GET
+        description: List Industries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api_token
+          in: query
+          type: string
+          description: Your API token from the StockData dashboard.
+          required: true
+    - name: entity-search
+      path: /entity/search
+      operations:
+      - name: searchentities
+        method: GET
+        description: Search Entities
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api_token
+          in: query
+          type: string
+          description: Your API token from the StockData dashboard.
+          required: true
+        - name: search
+          in: query
+          type: string
+          description: Search query matching entity name or symbol.
+        - name: symbols
+          in: query
+          type: string
+          description: Filter by comma-separated ticker symbols.
+        - name: exchanges
+          in: query
+          type: string
+          description: Filter by exchange codes.
+        - name: types
+          in: query
+          type: string
+          description: Filter by entity type (equity, etf, index, etc.).
+        - name: industries
+          in: query
+          type: string
+          description: Filter by industry classification.
+        - name: countries
+          in: query
+          type: string
+          description: Filter by country code.
+    - name: entity-type-list
+      path: /entity/type/list
+      operations:
+      - name: listentitytypes
+        method: GET
+        description: List Entity Types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api_token
+          in: query
+          type: string
+          description: Your API token from the StockData dashboard.
+          required: true
+    authentication:
+      type: apikey
+      key: api_token
+      value: '{{env.STOCKDATA_API_KEY}}'
+      placement: query
+  exposes:
+  - type: rest
+    namespace: stockdata-entities-rest
+    port: 8080
+    description: REST adapter for StockData API — Entities. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/entity/industry/list
+      name: entity-industry-list
+      description: REST surface for entity-industry-list.
+      operations:
+      - method: GET
+        name: listindustries
+        description: List Industries
+        call: stockdata-entities.listindustries
+        with:
+          api_token: rest.api_token
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/entity/search
+      name: entity-search
+      description: REST surface for entity-search.
+      operations:
+      - method: GET
+        name: searchentities
+        description: Search Entities
+        call: stockdata-entities.searchentities
+        with:
+          api_token: rest.api_token
+          search: rest.search
+          symbols: rest.symbols
+          exchanges: rest.exchanges
+          types: rest.types
+          industries: rest.industries
+          countries: rest.countries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/entity/type/list
+      name: entity-type-list
+      description: REST surface for entity-type-list.
+      operations:
+      - method: GET
+        name: listentitytypes
+        description: List Entity Types
+        call: stockdata-entities.listentitytypes
+        with:
+          api_token: rest.api_token
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: stockdata-entities-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for StockData API — Entities. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-industries
+      description: List Industries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: stockdata-entities.listindustries
+      with:
+        api_token: tools.api_token
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-entities
+      description: Search Entities
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: stockdata-entities.searchentities
+      with:
+        api_token: tools.api_token
+        search: tools.search
+        symbols: tools.symbols
+        exchanges: tools.exchanges
+        types: tools.types
+        industries: tools.industries
+        countries: tools.countries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-entity-types
+      description: List Entity Types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: stockdata-entities.listentitytypes
+      with:
+        api_token: tools.api_token
+      outputParameters:
+      - type: object
+        mapping: $.
