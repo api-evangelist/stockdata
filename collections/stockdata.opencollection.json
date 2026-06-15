@@ -1,0 +1,688 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockData API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stock Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Stock Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/quote",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA)."
+              },
+              {
+                "name": "extended_hours",
+                "value": "",
+                "type": "query",
+                "description": "Include pre/post market extended hours data."
+              },
+              {
+                "name": "key_by_ticker",
+                "value": "",
+                "type": "query",
+                "description": "Key response data by ticker symbol instead of array index."
+              }
+            ]
+          },
+          "docs": "Get real-time prices for US-listed stocks, updated from trade reports from IEX. Includes pre and post market data."
+        },
+        {
+          "info": {
+            "name": "Get Adjusted Intraday Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/intraday/adjusted",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval (minute or hour)."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              }
+            ]
+          },
+          "docs": "Get historical intraday data adjusted for splits, spanning 7+ years. Returns OHLCV data at minute or hour intervals."
+        },
+        {
+          "info": {
+            "name": "Get Raw Intraday Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/intraday",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval (minute or hour)."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              }
+            ]
+          },
+          "docs": "Get historical intraday data without split adjustments, spanning 7+ years. Returns OHLCV data at minute or hour intervals."
+        },
+        {
+          "info": {
+            "name": "Get End-of-Day Historical Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/eod",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for the data range."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date for the data range."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              }
+            ]
+          },
+          "docs": "Get historical end-of-day data for US stocks, adjusted for splits. Supports daily, weekly, monthly, quarterly, and yearly intervals."
+        },
+        {
+          "info": {
+            "name": "Get Stock Splits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/splits",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              }
+            ]
+          },
+          "docs": "Retrieve historical stock split information for US-listed stocks."
+        },
+        {
+          "info": {
+            "name": "Get Stock Dividends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/dividends",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              }
+            ]
+          },
+          "docs": "Access historical dividend payment records for US-listed stocks."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Financial News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/all",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter news by comma-separated ticker symbols."
+              },
+              {
+                "name": "entity_types",
+                "value": "",
+                "type": "query",
+                "description": "Filter by entity types (e.g., index, equity, etf)."
+              },
+              {
+                "name": "industries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by industry classification."
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country code."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "sentiment_lte",
+                "value": "",
+                "type": "query",
+                "description": "Maximum sentiment score filter."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query across article titles and descriptions."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter by language code (e.g., en, de, fr)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 50)."
+              }
+            ]
+          },
+          "docs": "Get all the latest global financial news filtered by entities identified within articles, with sentiment analysis for each entity."
+        },
+        {
+          "info": {
+            "name": "Get Similar News Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/similar/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the reference article."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter similar articles by ticker symbols."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter by language code."
+              }
+            ]
+          },
+          "docs": "Find articles similar to a specific article identified by its UUID, with relevance scores and entity data."
+        },
+        {
+          "info": {
+            "name": "Get News Article By UUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/uuid/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the article to retrieve."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific news article by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Get Entity News Stats Intraday",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/stats/intraday",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation interval for the time series."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to group results by (e.g., symbol)."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter by comma-separated ticker symbols."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "min_doc_count",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of articles required to include an entity."
+              }
+            ]
+          },
+          "docs": "Get an intraday time-series view of entity performance based on news sentiment, grouped by intervals."
+        },
+        {
+          "info": {
+            "name": "Get Entity News Stats Aggregation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/stats/aggregation",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to group results by."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter by comma-separated ticker symbols."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "min_doc_count",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of articles required."
+              }
+            ]
+          },
+          "docs": "Get a single-timeframe aggregation showing best and worst performing entities based on news sentiment."
+        },
+        {
+          "info": {
+            "name": "Get Trending Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/stats/trending",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to group results by."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time for the trending window."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date/time for the trending window."
+              },
+              {
+                "name": "min_doc_count",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of articles required."
+              }
+            ]
+          },
+          "docs": "Identify trending entities based on news volume and sentiment within a specified timeframe."
+        },
+        {
+          "info": {
+            "name": "Get News Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/sources",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "distinct_domain",
+                "value": "",
+                "type": "query",
+                "description": "Return only distinct domains."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter sources by language code."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              }
+            ]
+          },
+          "docs": "View all available news sources that can be used to filter other API requests. Sources span 5,000+ outlets in 30+ languages."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Entities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/entity/search",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Search query matching entity name or symbol."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter by comma-separated ticker symbols."
+              },
+              {
+                "name": "exchanges",
+                "value": "",
+                "type": "query",
+                "description": "Filter by exchange codes."
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "Filter by entity type (equity, etf, index, etc.)."
+              },
+              {
+                "name": "industries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by industry classification."
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country code."
+              }
+            ]
+          },
+          "docs": "Dynamic search for financial entities (stocks, ETFs, indices, crypto, currencies) with filtering by type, industry, exchange, and country."
+        },
+        {
+          "info": {
+            "name": "List Entity Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/entity/type/list",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              }
+            ]
+          },
+          "docs": "Returns all supported entity types including equity, index, ETF, mutual fund, currency, and cryptocurrency."
+        },
+        {
+          "info": {
+            "name": "List Industries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/entity/industry/list",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              }
+            ]
+          },
+          "docs": "Retrieve all supported industry classifications for entity filtering."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
