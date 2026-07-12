@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.stockdata.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 22 20:42:26 2026 GMT
+  hsts: false
+- host: api.stockdata.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 22 20:42:26 2026 GMT
+  hsts: null
+domains:
+- domain: stockdata.org
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: false
