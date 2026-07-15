@@ -42,6 +42,8 @@ apis:
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/stockdata/refs/heads/main/openapi/stockdata-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/stockdata-agentic-access.yml
   - type: DomainSecurity
     url: security/stockdata-domain-security.yml
   - type: Authentication
