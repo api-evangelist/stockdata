@@ -1,0 +1,18 @@
+generated: '2026-07-22'
+method: generated
+note: >-
+  Generated Agent Skills grounded in the operationIds of the OpenAPI definitions in openapi/;
+  StockData publishes no first-party skills or AGENTS.md (searched 2026-07-22).
+skills:
+  - file: stockdata-quote-and-history.md
+    name: Get quotes and price history for US-listed stocks
+    api: openapi/stockdata-stock-data-api-openapi.yml
+    operations: [getStockQuote, getIntradayAdjusted, getEndOfDayData, getStockSplits, getStockDividends]
+  - file: stockdata-news-sentiment-monitor.md
+    name: Monitor financial news and sentiment for a watchlist
+    api: openapi/stockdata-news-api-openapi.yml
+    operations: [getFinancialNews, getSimilarNews, getNewsStatsIntraday, getTrendingEntities, getNewsSources]
+  - file: stockdata-entity-discovery.md
+    name: Discover entities and build symbol filters
+    api: openapi/stockdata-entities-api-openapi.yml
+    operations: [searchEntities, listEntityTypes, listIndustries]

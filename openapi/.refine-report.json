@@ -1,0 +1,18 @@
+{
+  "provider": "stockdata",
+  "sources": [
+    "stockdata-entities-api-openapi.yml",
+    "stockdata-news-api-openapi.yml",
+    "stockdata-stock-data-api-openapi.yml"
+  ],
+  "outputs": [
+    "stockdata-entities-api-openapi.yml",
+    "stockdata-news-api-openapi.yml",
+    "stockdata-stock-data-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

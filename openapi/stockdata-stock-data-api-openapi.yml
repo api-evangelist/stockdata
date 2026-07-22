@@ -1,0 +1,502 @@
+openapi: 3.0.3
+info:
+  title: StockData Entities Stock Data API
+  description: StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.
+  version: '1.0'
+  contact:
+    url: https://www.stockdata.org/
+  termsOfService: https://www.stockdata.org/terms
+servers:
+- url: https://api.stockdata.org/v1
+  description: Production Server
+security:
+- ApiToken: []
+tags:
+- name: Stock Data
+  description: Real-time and historical stock market price data
+paths:
+  /data/quote:
+    get:
+      operationId: getStockQuote
+      summary: Get Stock Quote
+      description: Get real-time prices for US-listed stocks, updated from trade reports from IEX. Includes pre and post market data.
+      tags:
+      - Stock Data
+      parameters:
+      - name: api_token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your API token from the StockData dashboard.
+      - name: symbols
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA).
+      - name: extended_hours
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Include pre/post market extended hours data.
+      - name: key_by_ticker
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Key response data by ticker symbol instead of array index.
+      responses:
+        '200':
+          description: Stock quote data returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteResponse'
+        '401':
+          description: Invalid or missing API token.
+        '429':
+          description: Rate limit exceeded.
+  /data/intraday/adjusted:
+    get:
+      operationId: getIntradayAdjusted
+      summary: Get Adjusted Intraday Data
+      description: Get historical intraday data adjusted for splits, spanning 7+ years. Returns OHLCV data at minute or hour intervals.
+      tags:
+      - Stock Data
+      parameters:
+      - name: api_token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your API token from the StockData dashboard.
+      - name: symbols
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Comma-separated list of stock ticker symbols.
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - minute
+          - hour
+        description: Data interval (minute or hour).
+      - name: date_from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: Start date/time for the data range (ISO 8601).
+      - name: date_to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: End date/time for the data range (ISO 8601).
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        description: Sort order for results.
+      responses:
+        '200':
+          description: Adjusted intraday data returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntradayResponse'
+        '401':
+          description: Invalid or missing API token.
+        '429':
+          description: Rate limit exceeded.
+  /data/intraday:
+    get:
+      operationId: getIntradayRaw
+      summary: Get Raw Intraday Data
+      description: Get historical intraday data without split adjustments, spanning 7+ years. Returns OHLCV data at minute or hour intervals.
+      tags:
+      - Stock Data
+      parameters:
+      - name: api_token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your API token from the StockData dashboard.
+      - name: symbols
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Comma-separated list of stock ticker symbols.
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - minute
+          - hour
+        description: Data interval (minute or hour).
+      - name: date_from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: Start date/time for the data range (ISO 8601).
+      - name: date_to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: End date/time for the data range (ISO 8601).
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        description: Sort order for results.
+      responses:
+        '200':
+          description: Raw intraday data returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntradayResponse'
+        '401':
+          description: Invalid or missing API token.
+        '429':
+          description: Rate limit exceeded.
+  /data/eod:
+    get:
+      operationId: getEndOfDayData
+      summary: Get End-of-Day Historical Data
+      description: Get historical end-of-day data for US stocks, adjusted for splits. Supports daily, weekly, monthly, quarterly, and yearly intervals.
+      tags:
+      - Stock Data
+      parameters:
+      - name: api_token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your API token from the StockData dashboard.
+      - name: symbols
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Comma-separated list of stock ticker symbols.
+      - name: interval
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - quarter
+          - year
+        description: Data interval.
+      - name: date_from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: Start date for the data range.
+      - name: date_to
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date
+        description: End date for the data range.
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+        description: Sort order for results.
+      responses:
+        '200':
+          description: End-of-day data returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EodResponse'
+        '401':
+          description: Invalid or missing API token.
+        '429':
+          description: Rate limit exceeded.
+  /data/splits:
+    get:
+      operationId: getStockSplits
+      summary: Get Stock Splits
+      description: Retrieve historical stock split information for US-listed stocks.
+      tags:
+      - Stock Data
+      parameters:
+      - name: api_token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your API token from the StockData dashboard.
+      - name: symbols
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Comma-separated list of stock ticker symbols.
+      responses:
+        '200':
+          description: Stock splits data returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SplitsResponse'
+        '401':
+          description: Invalid or missing API token.
+  /data/dividends:
+    get:
+      operationId: getStockDividends
+      summary: Get Stock Dividends
+      description: Access historical dividend payment records for US-listed stocks.
+      tags:
+      - Stock Data
+      parameters:
+      - name: api_token
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Your API token from the StockData dashboard.
+      - name: symbols
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Comma-separated list of stock ticker symbols.
+      responses:
+        '200':
+          description: Dividend data returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DividendsResponse'
+        '401':
+          description: Invalid or missing API token.
+components:
+  schemas:
+    DividendsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dividend'
+    EodResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OHLCV'
+    Dividend:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        date:
+          type: string
+          format: date
+          description: Dividend payment date.
+        amount:
+          type: number
+          format: float
+          description: Dividend amount per share.
+    QuoteResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quote'
+    Quote:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        name:
+          type: string
+          description: Company name.
+        exchange_short:
+          type: string
+          description: Exchange short code.
+        mic_code:
+          type: string
+          description: Market identifier code.
+        currency:
+          type: string
+          description: Trading currency.
+        price:
+          type: number
+          format: float
+          description: Current price.
+        day_high:
+          type: number
+          format: float
+          description: Intraday high price.
+        day_low:
+          type: number
+          format: float
+          description: Intraday low price.
+        day_open:
+          type: number
+          format: float
+          description: Opening price for the day.
+        52_week_high:
+          type: number
+          format: float
+          description: 52-week high price.
+        52_week_low:
+          type: number
+          format: float
+          description: 52-week low price.
+        market_cap:
+          type: integer
+          description: Market capitalization in USD.
+        last_trade_time:
+          type: string
+          format: date-time
+          description: Timestamp of the last trade.
+        is_extended_hours_price:
+          type: boolean
+          description: Whether the price is from extended hours trading.
+        volume:
+          type: integer
+          description: Today's trading volume.
+        previous_close_price:
+          type: number
+          format: float
+          description: Previous day's closing price.
+    IntradayResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OHLCV'
+    Meta:
+      type: object
+      properties:
+        found:
+          type: integer
+          description: Total number of records matching the query.
+        returned:
+          type: integer
+          description: Number of records returned in this response.
+        limit:
+          type: integer
+          description: Maximum records per page.
+        page:
+          type: integer
+          description: Current page number.
+    SplitsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Split'
+    Split:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        date:
+          type: string
+          format: date
+          description: Date of the split.
+        numerator:
+          type: number
+          description: Split numerator.
+        denominator:
+          type: number
+          description: Split denominator.
+        ratio:
+          type: string
+          description: Human-readable split ratio (e.g., 4:1).
+    OHLCV:
+      type: object
+      properties:
+        date:
+          type: string
+          format: date-time
+          description: Timestamp of the data point.
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        open:
+          type: number
+          format: float
+          description: Opening price.
+        high:
+          type: number
+          format: float
+          description: High price.
+        low:
+          type: number
+          format: float
+          description: Low price.
+        close:
+          type: number
+          format: float
+          description: Closing price.
+        volume:
+          type: integer
+          description: Trading volume.
+        is_extended_hours:
+          type: boolean
+          description: Whether data is from extended hours.
+  securitySchemes:
+    ApiToken:
+      type: apiKey
+      in: query
+      name: api_token
+      description: API token obtained from the StockData dashboard.

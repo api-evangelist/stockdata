@@ -1,0 +1,65 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.stockdata.org/documentation
+note: >-
+  Cross-cutting request/response semantics captured from the single-page documentation and the
+  OpenAPI definitions in openapi/. The entire public surface is read-only GET endpoints.
+authentication:
+  style: api-key
+  location: query
+  parameter: api_token
+  docs: https://www.stockdata.org/documentation#authentication
+  artifact: authentication/stockdata-authentication.yml
+idempotency:
+  supported: false
+  note: >-
+    No idempotency-key contract is published. All public operations are HTTP GET (safe/read-only),
+    so retries are naturally side-effect free, but there is no documented Idempotency-Key header
+    or write surface to protect.
+pagination:
+  style: page-based
+  request_params:
+    page: Page number, default 1
+    limit: Results per request; maximum and default are set by the subscription plan
+  response_fields:
+    meta.found: Total results matching the query
+    meta.returned: Results returned on this page
+    meta.limit: Effective limit applied
+    meta.page: Current page number
+  max_result_set: 20000
+  docs: https://www.stockdata.org/documentation#news-feeds
+response_envelope:
+  shape: '{"meta": {...}, "data": [...]}'
+  note: Every list endpoint wraps results in meta + data; single resources return a data object.
+error_envelope:
+  shape: '{"error": {"code", "message"}}'
+  artifact: errors/stockdata-problem-types.yml
+rate_limit_signaling:
+  headers:
+    - X-RateLimit-Limit
+    - X-UsageLimit-Limit
+  window: 60-second sliding window for rate limits; daily window for plan usage quotas
+  status_codes:
+    rate_limited: 429
+    quota_exhausted: 402
+  artifact: rate-limits/stockdata-rate-limits.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base: https://api.stockdata.org/v1
+  artifact: lifecycle/stockdata-lifecycle.yml
+request_tracing:
+  supported: false
+  note: No request-id header is documented.
+field_expansion:
+  supported: false
+  note: >-
+    No generic expansion syntax; the News API offers filter_entities to control the entities
+    array on articles, and key_by_ticker on quotes to key results by symbol instead of index.
+metadata:
+  supported: false
+  note: No client-supplied metadata surface (read-only data API).
+symbols_convention:
+  note: >-
+    Endpoints accept comma-separated ticker symbols via the symbols parameter; per-request symbol
+    counts are capped by plan (e.g. 3 symbols per quote request on Free, 100 on Pro).

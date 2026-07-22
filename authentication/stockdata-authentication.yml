@@ -1,6 +1,7 @@
-generated: '2026-07-11'
-method: derived
+generated: '2026-07-22'
+method: searched
 source: openapi/stockdata-openapi.yml
+docs: https://www.stockdata.org/documentation#authentication
 summary:
   types:
   - apiKey
@@ -11,6 +12,13 @@ schemes:
   type: apiKey
   in: query
   parameter: api_token
-  description: API token obtained from the StockData dashboard.
+  description: >-
+    API token obtained from the StockData account dashboard after free self-serve signup
+    (no billing details required). Added as a GET query parameter on every endpoint;
+    an invalid or missing token returns 401 invalid_api_token.
+  signup: https://www.stockdata.org/register
   sources:
   - openapi/stockdata-openapi.yml
+notes:
+  - No OAuth 2.0, OpenID Connect, or header-based auth is offered; the api_token query parameter is the only mechanism.
+  - Because the token travels in the query string, avoid logging full request URLs.

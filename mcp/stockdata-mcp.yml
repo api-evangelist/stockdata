@@ -1,0 +1,61 @@
+generated: '2026-07-22'
+method: derived
+status: candidate
+source: openapi/stockdata-stock-data-api-openapi.yml, openapi/stockdata-news-api-openapi.yml, openapi/stockdata-entities-api-openapi.yml
+note: >-
+  StockData.org publishes no official MCP server (checked npm, the official MCP registry, and the
+  docs — the npm package "stockdata-mcp" is an unrelated third-party akshare/China-markets server).
+  This is a candidate tool surface derived one tool per OpenAPI operation; auth is the api_token
+  query parameter from the StockData dashboard.
+server:
+  name: stockdata
+  transport: http
+tools:
+  - name: get_stock_quote
+    description: Get real-time prices for US-listed stocks, including pre/post market extended hours data.
+    source_operation: openapi/stockdata-stock-data-api-openapi.yml#getStockQuote
+  - name: get_intraday_adjusted
+    description: Get adjusted intraday OHLCV data for US-listed stocks.
+    source_operation: openapi/stockdata-stock-data-api-openapi.yml#getIntradayAdjusted
+  - name: get_intraday_raw
+    description: Get unadjusted intraday OHLCV data for US-listed stocks.
+    source_operation: openapi/stockdata-stock-data-api-openapi.yml#getIntradayRaw
+  - name: get_end_of_day_data
+    description: Get historical end-of-day OHLCV data for stocks, crypto, and forex.
+    source_operation: openapi/stockdata-stock-data-api-openapi.yml#getEndOfDayData
+  - name: get_stock_splits
+    description: Get historical stock split events for a ticker.
+    source_operation: openapi/stockdata-stock-data-api-openapi.yml#getStockSplits
+  - name: get_stock_dividends
+    description: Get historical dividend payments for a ticker.
+    source_operation: openapi/stockdata-stock-data-api-openapi.yml#getStockDividends
+  - name: get_financial_news
+    description: Get global financial news filtered by symbols, entities, sentiment, language, industry, and more.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getFinancialNews
+  - name: get_similar_news
+    description: Get articles similar to a given news article UUID.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getSimilarNews
+  - name: get_news_by_uuid
+    description: Get a single news article by its UUID.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getNewsByUuid
+  - name: get_news_stats_intraday
+    description: Get intraday news statistics grouped by entity over time intervals.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getNewsStatsIntraday
+  - name: get_news_stats_aggregation
+    description: Get aggregated news statistics for entities over a period.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getNewsStatsAggregation
+  - name: get_trending_entities
+    description: Get trending entities ranked by mention volume and sentiment.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getTrendingEntities
+  - name: get_news_sources
+    description: List the news sources (source_id, domain, language) available for filtering.
+    source_operation: openapi/stockdata-news-api-openapi.yml#getNewsSources
+  - name: search_entities
+    description: Search the 150,000+ tracked entities by name or symbol.
+    source_operation: openapi/stockdata-entities-api-openapi.yml#searchEntities
+  - name: list_entity_types
+    description: List the entity types tracked by StockData.
+    source_operation: openapi/stockdata-entities-api-openapi.yml#listEntityTypes
+  - name: list_industries
+    description: List the industries used to classify entities.
+    source_operation: openapi/stockdata-entities-api-openapi.yml#listIndustries

@@ -1,0 +1,23 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.stockdata.org/documentation
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://api.stockdata.org/v1
+  docs: https://www.stockdata.org/documentation
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No public deprecation policy or RFC 8594 Sunset header support is documented.
+sla:
+  url: null
+  note: No SLA is published; maintenance windows surface as 503 maintenance_mode errors.
+status_page: null
+status_page_note: >-
+  No status page found — status.stockdata.org does not resolve and no status link is published
+  on the site (probed 2026-07-22).
+deprecated_operations: []
+notes:
+  - The API has remained on v1 with a stable single-page documentation surface.
+  - Service maintenance is signaled at runtime via the 503 maintenance_mode error code (see errors/stockdata-problem-types.yml).

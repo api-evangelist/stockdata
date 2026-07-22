@@ -1,0 +1,38 @@
+generated: '2026-07-22'
+method: searched
+source: live probes of https://www.stockdata.org and https://api.stockdata.org
+note: >-
+  All /.well-known/ discovery documents were probed on both the website host and the API host;
+  none are published. Absence recorded as valid probe data — no raw files saved because nothing
+  returned 200.
+hosts:
+  - https://www.stockdata.org
+  - https://api.stockdata.org
+documents:
+  - path: /.well-known/security.txt
+    host: https://www.stockdata.org
+    status: 404
+  - path: /.well-known/security.txt
+    host: https://api.stockdata.org
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: https://www.stockdata.org
+    status: 404
+  - path: /.well-known/openid-configuration
+    host: https://api.stockdata.org
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: https://www.stockdata.org
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: https://api.stockdata.org
+    status: 404
+  - path: /.well-known/api-catalog
+    host: https://www.stockdata.org
+    status: 404
+  - path: /.well-known/api-catalog
+    host: https://api.stockdata.org
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: https://www.stockdata.org
+    status: 404

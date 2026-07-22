@@ -1,0 +1,34 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ + https://www.stockdata.org/documentation
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: Three OpenAPI 3.0.3 definitions in openapi/ describe the full public surface.
+  - id: oauth2
+    conforms: false
+    evidence: Authentication is a single apiKey (api_token query parameter); no OAuth 2.0 surface.
+  - id: oidc
+    conforms: false
+    evidence: /.well-known/openid-configuration returns 404 on both hosts.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a custom {"error":{"code","message"}} envelope, not application/problem+json.
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 on both hosts (probed 2026-07-22).
+  - id: pagination
+    conforms: true
+    evidence: Documented page/limit parameters with meta {found, returned, limit, page} response block.
+  - id: rate-limit-headers
+    conforms: true
+    evidence: X-RateLimit-Limit and X-UsageLimit-Limit headers documented in the errors reference.
+  - id: idempotency-key
+    conforms: false
+    evidence: No idempotency-key contract; all operations are safe HTTP GETs.
+  - id: json-api
+    conforms: false
+    evidence: Responses are a bespoke meta/data envelope, not JSON:API media type.
+  - id: rfc8594-sunset
+    conforms: false
+    evidence: No Sunset/Deprecation header support documented.

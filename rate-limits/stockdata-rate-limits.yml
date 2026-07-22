@@ -4,7 +4,10 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: StockData
 providerId: stockdata
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-07-22'
+generated: '2026-07-22'
+method: searched
+source: https://www.stockdata.org/documentation#errors, https://www.stockdata.org/pricing
 tags:
   - Finance
   - Financial Data
@@ -15,76 +18,73 @@ tags:
   - Rate Limiting
   - Quotas
   - Throttling
-description: Machine-readable rate limit definitions for the StockData API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+description: Rate limit and usage-quota definitions for the StockData API, captured from the published
+  documentation and pricing page. StockData enforces a per-60-second rate limit (signaled via the
+  X-RateLimit-Limit header family) and a daily request quota per subscription plan (signaled via the
+  X-UsageLimit-Limit header family). The numeric per-minute ceiling is not published.
 headers:
   limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  usageLimit: X-UsageLimit-Limit
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
+  quotaExceeded: 402
   serviceUnavailable: 503
+errorCodes:
+  throttled: rate_limit_reached
+  quotaExceeded: usage_limit_reached
 limits:
   - tier: free
-    name: Free Tier Default
+    name: Free daily quota
     scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - StockData API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - StockData API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
+    metric: requests_per_day
     limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - StockData API
-  - tier: professional
-    name: Professional Tier Monthly Quota
+    timeFrame: day
+    applies: [StockData API]
+  - tier: basic
+    name: Basic daily quota
     scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - StockData API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
+    metric: requests_per_day
+    limit: 2500
+    timeFrame: day
+    applies: [StockData API]
+  - tier: standard
+    name: Standard daily quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 10000
+    timeFrame: day
+    applies: [StockData API]
+  - tier: pro
+    name: Pro daily quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 25000
+    timeFrame: day
+    applies: [StockData API]
+  - tier: pro-50k
+    name: Pro 50K daily quota
+    scope: api-key
+    metric: requests_per_day
+    limit: 50000
+    timeFrame: day
+    applies: [StockData API]
+  - tier: all
+    name: 60-second rate limit window
+    scope: api-key
     metric: requests_per_minute
-    limit: 1000
-    burst: 5000
+    limit: null
     timeFrame: minute
-    applies:
-      - StockData API
+    note: Enforced per 60-second window; the ceiling is not published — read X-RateLimit-Limit at runtime.
+    applies: [StockData API]
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Throttle signaling
+    description: 429 rate_limit_reached is returned for too many requests in the past 60 seconds;
+      remaining requests are exposed on the X-RateLimit-Limit header family.
+  - name: Quota signaling
+    description: 402 usage_limit_reached is returned when the daily plan quota is exhausted; the limit
+      and remaining requests are exposed on the X-UsageLimit-Limit header family.
+  - name: Request counting
+    description: Each API call that accesses stock or currency data adds 1 request to daily usage (FAQ).
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

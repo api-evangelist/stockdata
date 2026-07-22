@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for StockData Stock Data API
+  version: 1.0.0
+extends: openapi/stockdata-stock-data-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist:
+        provider: stockdata
+        generated: '2026-07-22'
+        artifacts:
+          errors: errors/stockdata-problem-types.yml
+          conventions: conventions/stockdata-conventions.yml
+          rateLimits: rate-limits/stockdata-rate-limits.yml
+          authentication: authentication/stockdata-authentication.yml
+  - target: $.info
+    update:
+      x-error-envelope: '{"error": {"code", "message"}}'
+      x-rate-limit-headers: [X-RateLimit-Limit, X-UsageLimit-Limit]
+  - target: $.externalDocs
+    update:
+      description: StockData single-page API reference
+      url: https://www.stockdata.org/documentation#stock-data

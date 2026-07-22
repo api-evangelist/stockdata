@@ -1,0 +1,109 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/stockdata-stock-data-api-openapi.yml, openapi/stockdata-news-api-openapi.yml, openapi/stockdata-entities-api-openapi.yml
+note: >-
+  Entity-relationship graph derived from OpenAPI component schemas and their $ref/id-reference
+  fields. The natural key joining the three APIs is the ticker/symbol; news articles carry
+  embedded entity matches with sentiment.
+entities:
+  - name: Entity
+    source: openapi/stockdata-entities-api-openapi.yml#/components/schemas/Entity
+    key: symbol
+    domain: metadata
+    fields: [symbol, name, type, industry, exchange, exchange_long, mic_code, country, currency]
+  - name: NewsArticle
+    source: openapi/stockdata-news-api-openapi.yml#/components/schemas/NewsArticle
+    key: uuid
+    domain: news
+    fields: [uuid, title, description, keywords, snippet, url, image_url, language, published_at, source, relevance_score]
+  - name: NewsEntity
+    source: openapi/stockdata-news-api-openapi.yml#/components/schemas/NewsEntity
+    key: symbol
+    domain: news
+    fields: [symbol, name, exchange, mic_code, country, type, industry, match_score, sentiment_score]
+  - name: Highlight
+    source: openapi/stockdata-news-api-openapi.yml#/components/schemas/Highlight
+    domain: news
+    fields: [highlight, sentiment, highlighted_in]
+  - name: NewsSource
+    source: openapi/stockdata-news-api-openapi.yml#/components/schemas/NewsSource
+    key: source_id
+    domain: news
+    fields: [source_id, domain, language]
+  - name: TrendingEntity
+    source: openapi/stockdata-news-api-openapi.yml#/components/schemas/TrendingEntity
+    key: entity_key
+    domain: analytics
+    fields: [entity_key, document_count, sentiment_avg, relevance_score]
+  - name: EntityStats
+    source: openapi/stockdata-news-api-openapi.yml#/components/schemas/EntityStats
+    key: entity_key
+    domain: analytics
+    fields: [entity_key, total_documents, sentiment_avg]
+  - name: Quote
+    source: openapi/stockdata-stock-data-api-openapi.yml#/components/schemas/Quote
+    key: ticker
+    domain: market-data
+    fields: [ticker, name, exchange_short, mic_code, currency, price, day_high, day_low, day_open, market_cap, last_trade_time]
+  - name: OHLCV
+    source: openapi/stockdata-stock-data-api-openapi.yml#/components/schemas/OHLCV
+    key: [ticker, date]
+    domain: market-data
+    fields: [date, ticker, open, high, low, close, volume, is_extended_hours]
+  - name: Split
+    source: openapi/stockdata-stock-data-api-openapi.yml#/components/schemas/Split
+    key: [ticker, date]
+    domain: market-data
+    fields: [ticker, date, numerator, denominator, ratio]
+  - name: Dividend
+    source: openapi/stockdata-stock-data-api-openapi.yml#/components/schemas/Dividend
+    key: [ticker, date]
+    domain: market-data
+    fields: [ticker, date, amount]
+relationships:
+  - from: NewsArticle
+    to: NewsEntity
+    kind: has_many
+    via: entities
+    note: Embedded array of entities identified in the article, each with match and sentiment scores.
+  - from: NewsArticle
+    to: NewsArticle
+    kind: has_many
+    via: similar
+    note: Similar-article references, also reachable via getSimilarNews.
+  - from: NewsArticle
+    to: NewsSource
+    kind: belongs_to
+    via: source
+    note: source field is the source domain; join to NewsSource.domain / source_id filters.
+  - from: NewsEntity
+    to: Highlight
+    kind: has_many
+    via: highlights
+  - from: NewsEntity
+    to: Entity
+    kind: belongs_to
+    via: symbol
+    note: Entity metadata for a symbol lives in the Entities API (searchEntities).
+  - from: Quote
+    to: Entity
+    kind: belongs_to
+    via: ticker
+  - from: OHLCV
+    to: Quote
+    kind: belongs_to
+    via: ticker
+  - from: Split
+    to: Entity
+    kind: belongs_to
+    via: ticker
+  - from: Dividend
+    to: Entity
+    kind: belongs_to
+    via: ticker
+  - from: TrendingEntity
+    to: Entity
+    kind: belongs_to
+    via: entity_key
+envelope:
+  note: Every list response wraps rows in meta {found, returned, limit, page} + data[].

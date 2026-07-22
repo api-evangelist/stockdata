@@ -5,9 +5,22 @@ description: >-
   financial news and sentiment analysis. The REST API delivers market data for US-listed stocks including OHLCV data,
   splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/stockdata.png
 tags:
   - Finance
   - Financial Data
@@ -17,30 +30,63 @@ tags:
   - Sentiment Analysis
 url: https://raw.githubusercontent.com/api-evangelist/stockdata/refs/heads/main/apis.yml
 created: '2025-02-24'
-modified: '2026-05-19'
+modified: '2026-07-22'
 specificationVersion: '0.19'
 apis:
-  - aid: stockdata:stockdata
-    name: StockData API
-    description: >-
-      The StockData REST API provides free and paid access to real-time stock quotes, intraday price data (adjusted and
-      unadjusted), end-of-day historical data, splits, dividends, financial news with sentiment analysis, trending
-      entities, and entity search. All endpoints require an api_token parameter.
-    humanURL: https://www.stockdata.org/
-    tags:
-      - Finance
-      - Financial Data
-      - Stock Market
-      - Market Data
-      - News
-      - Sentiment Analysis
-    properties:
-      - type: Documentation
-        url: https://www.stockdata.org/documentation
-      - type: Website
-        url: https://www.stockdata.org/
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/stockdata/refs/heads/main/openapi/stockdata-openapi.yml
+- aid: stockdata:stockdata-entities-api
+  name: StockData Entities API
+  description: Entity search and metadata
+  humanURL: https://www.stockdata.org/
+  baseURL: https://api.stockdata.org/v1
+  tags:
+  - Entities
+  properties:
+  - type: OpenAPI
+    url: openapi/stockdata-entities-api-openapi.yml
+  - type: Overlay
+    url: overlays/stockdata-entities-api-overlay.yaml
+  - type: Documentation
+    url: https://www.stockdata.org/documentation
+  - type: APIReference
+    url: https://www.stockdata.org/documentation#stock-metadata
+  - type: Website
+    url: https://www.stockdata.org/
+- aid: stockdata:stockdata-news-api
+  name: StockData News API
+  description: Global financial news with sentiment analysis
+  humanURL: https://www.stockdata.org/
+  baseURL: https://api.stockdata.org/v1
+  tags:
+  - News
+  properties:
+  - type: OpenAPI
+    url: openapi/stockdata-news-api-openapi.yml
+  - type: Overlay
+    url: overlays/stockdata-news-api-overlay.yaml
+  - type: Documentation
+    url: https://www.stockdata.org/documentation
+  - type: APIReference
+    url: https://www.stockdata.org/documentation#news-feeds
+  - type: Website
+    url: https://www.stockdata.org/
+- aid: stockdata:stockdata-stock-data-api
+  name: StockData Stock Data API
+  description: Real-time and historical stock market price data
+  humanURL: https://www.stockdata.org/
+  baseURL: https://api.stockdata.org/v1
+  tags:
+  - Stock Data
+  properties:
+  - type: OpenAPI
+    url: openapi/stockdata-stock-data-api-openapi.yml
+  - type: Overlay
+    url: overlays/stockdata-stock-data-api-overlay.yaml
+  - type: Documentation
+    url: https://www.stockdata.org/documentation
+  - type: APIReference
+    url: https://www.stockdata.org/documentation#stock-data
+  - type: Website
+    url: https://www.stockdata.org/
 common:
   - type: AgenticAccess
     url: agentic-access/stockdata-agentic-access.yml
@@ -48,14 +94,64 @@ common:
     url: security/stockdata-domain-security.yml
   - type: Authentication
     url: authentication/stockdata-authentication.yml
+  - type: MCPServer
+    url: mcp/stockdata-mcp.yml
+  - type: LLMsTxt
+    url: llms/stockdata-llms.txt
+  - type: Conventions
+    url: conventions/stockdata-conventions.yml
+  - type: ErrorCatalog
+    url: errors/stockdata-problem-types.yml
+  - type: Conformance
+    url: conformance/stockdata-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/stockdata-lifecycle.yml
+  - type: DataModel
+    url: data-model/stockdata-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: Vocabulary
+    url: vocabulary/stockdata-vocabulary.yml
+  - type: RateLimits
+    url: rate-limits/stockdata-rate-limits.yml
+  - type: Plans
+    url: plans/stockdata-plans-pricing.yml
+  - type: SpectralRules
+    url: rules/stockdata-rules.yml
+  - type: JSONSchema
+    url: json-schema/stockdata-quote-schema.json
+  - type: JSONSchema
+    url: json-schema/stockdata-news-article-schema.json
+  - type: JSONStructure
+    url: json-structure/stockdata-quote-structure.json
+  - type: JSONLDContext
+    url: json-ld/stockdata-context.jsonld
+  - type: Examples
+    url: examples/stockdata-get-stock-quote-example.json
+  - type: Examples
+    url: examples/stockdata-get-financial-news-example.json
+  - type: PostmanCollection
+    url: collections/stockdata.postman_collection.json
   - type: LinkedIn
     url: https://www.linkedin.com/company/stockdata-org
   - type: Portal
     url: https://www.stockdata.org/
   - type: Documentation
     url: https://www.stockdata.org/documentation
+  - type: APIReference
+    url: https://www.stockdata.org/documentation
+  - type: GettingStarted
+    url: https://www.stockdata.org/documentation#introduction
+  - type: Support
+    url: https://www.stockdata.org/contact
   - type: Signup
     url: https://www.stockdata.org/register
+  - type: Login
+    url: https://www.stockdata.org/login
+  - type: TermsOfService
+    url: https://www.stockdata.org/tos
+  - type: PrivacyPolicy
+    url: https://www.stockdata.org/privacy
   - type: Website
     url: https://www.stockdata.org/
   - type: Pricing

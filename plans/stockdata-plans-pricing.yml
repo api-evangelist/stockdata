@@ -4,7 +4,10 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: StockData
 providerId: stockdata
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-07-22'
+generated: '2026-07-22'
+method: searched
+source: https://www.stockdata.org/pricing
 tags:
   - Finance
   - Financial Data
@@ -12,131 +15,118 @@ tags:
   - Market Data
   - News
   - Sentiment Analysis
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+description: Machine-readable plans and pricing for StockData.org, captured from the published pricing
+  page. Five self-serve subscription tiers metered by daily API requests, symbols per request, articles
+  per news request, and historical data depth. Annual billing carries a 20% discount (2 months free).
+currency: USD
+billing:
+  cycles: [monthly, yearly]
+  yearly_discount: '20%'
+  docs: https://www.stockdata.org/faq
 plans:
   - id: stockdata-free
     name: Free
     type: freemium
-    description: Free entry tier for the StockData API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+    price_monthly: '0.00'
+    price_yearly_equivalent_monthly: '0.00'
+    description: Free entry tier with instant self-serve access — no billing details required.
     entries:
       - label: API Requests
-        description: Monthly API request quota across all included endpoints
         name: api_requests
         type: quota
         metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: StockData API
-  - id: stockdata-pro
-    name: Professional
-    type: paid
-    description: Production tier for StockData. Provides higher quotas, priority support, and access to
-      the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
         limit: 100
-        timeFrame: minute
-        geo: global
-        domains: []
-        unit: 1
+        timeFrame: day
         price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains: []
-        unit: 1000
-        price: TBD
-        userMultiplied: false
+      - {label: Symbols per stock price request, name: symbols_per_quote, type: limit, metric: symbols, limit: 3}
+      - {label: Symbols per intraday request, name: symbols_per_intraday, type: limit, metric: symbols, limit: 1}
+      - {label: Articles per news request, name: articles_per_request, type: limit, metric: articles, limit: 2}
+      - {label: Intraday history, name: intraday_history, type: limit, metric: months, limit: 1}
+      - {label: EOD history, name: eod_history, type: limit, metric: months, limit: 1}
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: StockData API
-  - id: stockdata-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for StockData. Includes dedicated capacity, contractual SLAs,
-      security review, data residency options, and named technical account management.
+      - name: Unadjusted and adjusted intraday data
+      - name: Splits and Dividends
+      - name: Bulk data API access
+      - name: Market Stats API access
+      - name: Full metadata access
+      - name: 150,000+ entities / 70+ exchanges news data
+      - name: Technical support
+  - id: stockdata-basic
+    name: Basic
+    type: paid
+    price_monthly: '29.00'
+    price_yearly_equivalent_monthly: '24.00'
     entries:
       - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
         name: api_requests
         type: quota
         metric: requests
-        limit: -1
-        timeFrame: month
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains: []
-        unit: 1
-        price: custom
-        userMultiplied: false
-    elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: StockData API
+        limit: 2500
+        timeFrame: day
+        price: '29.00'
+      - {label: Symbols per stock price request, name: symbols_per_quote, type: limit, metric: symbols, limit: 10}
+      - {label: Symbols per intraday request, name: symbols_per_intraday, type: limit, metric: symbols, limit: 1}
+      - {label: Articles per news request, name: articles_per_request, type: limit, metric: articles, limit: 10}
+      - {label: Intraday history, name: intraday_history, type: limit, metric: years, limit: 1}
+      - {label: EOD history, name: eod_history, type: limit, metric: years, limit: 1}
+  - id: stockdata-standard
+    name: Standard
+    type: paid
+    price_monthly: '49.00'
+    price_yearly_equivalent_monthly: '41.00'
+    popular: true
+    entries:
+      - label: API Requests
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 10000
+        timeFrame: day
+        price: '49.00'
+      - {label: Symbols per stock price request, name: symbols_per_quote, type: limit, metric: symbols, limit: 25}
+      - {label: Symbols per intraday request, name: symbols_per_intraday, type: limit, metric: symbols, limit: 1}
+      - {label: Articles per news request, name: articles_per_request, type: limit, metric: articles, limit: 25}
+      - {label: Intraday history, name: intraday_history, type: limit, metric: years, limit: 7}
+      - {label: EOD history, name: eod_history, type: limit, metric: years, limit: 7}
+  - id: stockdata-pro
+    name: Pro
+    type: paid
+    price_monthly: '99.00'
+    price_yearly_equivalent_monthly: '83.00'
+    entries:
+      - label: API Requests
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 25000
+        timeFrame: day
+        price: '99.00'
+      - {label: Symbols per stock price request, name: symbols_per_quote, type: limit, metric: symbols, limit: 100}
+      - {label: Symbols per intraday request, name: symbols_per_intraday, type: limit, metric: symbols, limit: 3}
+      - {label: Articles per news request, name: articles_per_request, type: limit, metric: articles, limit: 50}
+      - {label: Intraday history, name: intraday_history, type: limit, metric: years, limit: 7}
+      - {label: EOD history, name: eod_history, type: limit, metric: years, limit: 7}
+  - id: stockdata-pro-50k
+    name: Pro 50K
+    type: paid
+    price_monthly: '199.00'
+    price_yearly_equivalent_monthly: '166.00'
+    entries:
+      - label: API Requests
+        name: api_requests
+        type: quota
+        metric: requests
+        limit: 50000
+        timeFrame: day
+        price: '199.00'
+      - {label: Symbols per stock price request, name: symbols_per_quote, type: limit, metric: symbols, limit: 100}
+      - {label: Symbols per intraday request, name: symbols_per_intraday, type: limit, metric: symbols, limit: 3}
+      - {label: Articles per news request, name: articles_per_request, type: limit, metric: articles, limit: 50}
+      - {label: Intraday history, name: intraday_history, type: limit, metric: years, limit: 7}
+      - {label: EOD history, name: eod_history, type: limit, metric: years, limit: 7}
+notes:
+  - Historical data depth on Standard/Pro/Pro 50K is published as "7+ years".
+  - Cancellation and plan changes are self-serve at any time from the account dashboard (FAQ).
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
