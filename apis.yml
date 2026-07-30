@@ -88,6 +88,8 @@ apis:
   - type: Website
     url: https://www.stockdata.org/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/stockdata/overview
   - type: AgenticAccess
     url: agentic-access/stockdata-agentic-access.yml
   - type: DomainSecurity
