@@ -1,0 +1,1635 @@
+{
+  "info": {
+    "_postman_id": "98f19833-2a1b-4e24-b700-111aea94797e",
+    "name": "StockData Entities News API",
+    "description": "StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:05:44.000Z",
+    "updatedAt": "2026-07-28T03:05:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-98f19833-2a1b-4e24-b700-111aea94797e"
+  },
+  "item": [
+    {
+      "name": "news",
+      "item": [
+        {
+          "name": "all",
+          "item": [
+            {
+              "name": "Get Financial News",
+              "id": "b25ddc92-072f-4a31-b116-9a0db95e1231",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news/all?api_token=<string>&symbols=<string>&entity_types=<string>&industries=<string>&countries=<string>&sentiment_gte=<float>&sentiment_lte=<float>&search=<string>&language=<string>&page=<integer>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news",
+                    "all"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter news by comma-separated ticker symbols.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by entity types (e.g., index, equity, etf).",
+                      "key": "entity_types",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by industry classification.",
+                      "key": "industries",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country code.",
+                      "key": "countries",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum sentiment score filter.",
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "description": "Maximum sentiment score filter.",
+                      "key": "sentiment_lte",
+                      "value": "<float>"
+                    },
+                    {
+                      "description": "Full-text search query across article titles and descriptions.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by language code (e.g., en, de, fr).",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for pagination.",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results per page (max 50).",
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Get all the latest global financial news filtered by entities identified within articles, with sentiment analysis for each entity."
+              },
+              "response": [
+                {
+                  "id": "a225dca3-c8c6-4e27-8370-875c29fb4e20",
+                  "name": "News articles returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/all?api_token=<API Key>&symbols=<string>&entity_types=<string>&industries=<string>&countries=<string>&sentiment_gte=<float>&sentiment_lte=<float>&search=<string>&language=<string>&page=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "all"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter news by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by entity types (e.g., index, equity, etf).",
+                          "key": "entity_types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by industry classification.",
+                          "key": "industries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by country code.",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum sentiment score filter.",
+                          "key": "sentiment_gte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Maximum sentiment score filter.",
+                          "key": "sentiment_lte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Full-text search query across article titles and descriptions.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by language code (e.g., en, de, fr).",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number for pagination.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results per page (max 50).",
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"uuid\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"keywords\": \"<string>\",\n      \"snippet\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"language\": \"<string>\",\n      \"published_at\": \"<dateTime>\",\n      \"source\": \"<string>\",\n      \"relevance_score\": \"<float>\",\n      \"entities\": [\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    },\n    {\n      \"uuid\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"keywords\": \"<string>\",\n      \"snippet\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"language\": \"<string>\",\n      \"published_at\": \"<dateTime>\",\n      \"source\": \"<string>\",\n      \"relevance_score\": \"<float>\",\n      \"entities\": [\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-a225dca3-c8c6-4e27-8370-875c29fb4e20"
+                },
+                {
+                  "id": "9c62b502-2075-4590-b483-cb0b4ccb6dfc",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/all?api_token=<API Key>&symbols=<string>&entity_types=<string>&industries=<string>&countries=<string>&sentiment_gte=<float>&sentiment_lte=<float>&search=<string>&language=<string>&page=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "all"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter news by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by entity types (e.g., index, equity, etf).",
+                          "key": "entity_types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by industry classification.",
+                          "key": "industries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by country code.",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum sentiment score filter.",
+                          "key": "sentiment_gte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Maximum sentiment score filter.",
+                          "key": "sentiment_lte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Full-text search query across article titles and descriptions.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by language code (e.g., en, de, fr).",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number for pagination.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results per page (max 50).",
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-9c62b502-2075-4590-b483-cb0b4ccb6dfc"
+                },
+                {
+                  "id": "372a5343-d1c8-42c1-b253-064a51c24036",
+                  "name": "Rate limit exceeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/all?api_token=<API Key>&symbols=<string>&entity_types=<string>&industries=<string>&countries=<string>&sentiment_gte=<float>&sentiment_lte=<float>&search=<string>&language=<string>&page=<integer>&limit=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "all"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Filter news by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by entity types (e.g., index, equity, etf).",
+                          "key": "entity_types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by industry classification.",
+                          "key": "industries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by country code.",
+                          "key": "countries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum sentiment score filter.",
+                          "key": "sentiment_gte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Maximum sentiment score filter.",
+                          "key": "sentiment_lte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Full-text search query across article titles and descriptions.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by language code (e.g., en, de, fr).",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number for pagination.",
+                          "key": "page",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Number of results per page (max 50).",
+                          "key": "limit",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-372a5343-d1c8-42c1-b253-064a51c24036"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-b25ddc92-072f-4a31-b116-9a0db95e1231"
+            }
+          ],
+          "id": "6e4a844c-5eaa-4d6a-988b-9bd2771ef419",
+          "createdAt": "2026-07-28T03:05:44.000Z",
+          "updatedAt": "2026-07-28T03:05:44.000Z",
+          "uid": "35240-6e4a844c-5eaa-4d6a-988b-9bd2771ef419"
+        },
+        {
+          "name": "similar",
+          "item": [
+            {
+              "name": "{uuid}",
+              "item": [
+                {
+                  "name": "Get Similar News Articles",
+                  "id": "02525531-4a4a-40b5-bcd9-f33617317d1d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/similar/:uuid?api_token=<string>&symbols=<string>&language=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "similar",
+                        ":uuid"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter similar articles by ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by language code.",
+                          "key": "language",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "005f4f63-a7e6-480f-ae3b-234f34932bcc",
+                          "key": "uuid",
+                          "value": "<string>",
+                          "description": "(Required) UUID of the reference article."
+                        }
+                      ]
+                    },
+                    "description": "Find articles similar to a specific article identified by its UUID, with relevance scores and entity data."
+                  },
+                  "response": [
+                    {
+                      "id": "bf56dc8c-bcc4-4002-aef5-3234f47c24b7",
+                      "name": "Similar articles returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/similar/:uuid?api_token=<API Key>&symbols=<string>&language=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "similar",
+                            ":uuid"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter similar articles by ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by language code.",
+                              "key": "language",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "uuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"uuid\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"keywords\": \"<string>\",\n      \"snippet\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"language\": \"<string>\",\n      \"published_at\": \"<dateTime>\",\n      \"source\": \"<string>\",\n      \"relevance_score\": \"<float>\",\n      \"entities\": [\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    },\n    {\n      \"uuid\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"keywords\": \"<string>\",\n      \"snippet\": \"<string>\",\n      \"url\": \"<uri>\",\n      \"image_url\": \"<uri>\",\n      \"language\": \"<string>\",\n      \"published_at\": \"<dateTime>\",\n      \"source\": \"<string>\",\n      \"relevance_score\": \"<float>\",\n      \"entities\": [\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        },\n        {\n          \"symbol\": \"<string>\",\n          \"name\": \"<string>\",\n          \"exchange\": \"<string>\",\n          \"exchange_long\": \"<string>\",\n          \"mic_code\": \"<string>\",\n          \"country\": \"<string>\",\n          \"type\": \"<string>\",\n          \"industry\": \"<string>\",\n          \"match_score\": \"<float>\",\n          \"sentiment_score\": \"<float>\",\n          \"highlights\": [\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            },\n            {\n              \"highlight\": \"<string>\",\n              \"sentiment\": \"<float>\",\n              \"highlighted_in\": \"<string>\"\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-bf56dc8c-bcc4-4002-aef5-3234f47c24b7"
+                    },
+                    {
+                      "id": "3f6abe05-b977-40c4-9511-7fb30418928c",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/similar/:uuid?api_token=<API Key>&symbols=<string>&language=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "similar",
+                            ":uuid"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter similar articles by ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by language code.",
+                              "key": "language",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "uuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-3f6abe05-b977-40c4-9511-7fb30418928c"
+                    },
+                    {
+                      "id": "a3e98957-83cb-4e6b-b922-34f295e3aefb",
+                      "name": "Article not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/similar/:uuid?api_token=<API Key>&symbols=<string>&language=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "similar",
+                            ":uuid"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Filter similar articles by ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by language code.",
+                              "key": "language",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "uuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-a3e98957-83cb-4e6b-b922-34f295e3aefb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-02525531-4a4a-40b5-bcd9-f33617317d1d"
+                }
+              ],
+              "id": "da254696-8017-4382-b11d-52e20c6c6a19",
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-da254696-8017-4382-b11d-52e20c6c6a19"
+            }
+          ],
+          "id": "8ee7e7db-3413-4c14-8e72-da37fb30e639",
+          "createdAt": "2026-07-28T03:05:44.000Z",
+          "updatedAt": "2026-07-28T03:05:44.000Z",
+          "uid": "35240-8ee7e7db-3413-4c14-8e72-da37fb30e639"
+        },
+        {
+          "name": "uuid",
+          "item": [
+            {
+              "name": "{uuid}",
+              "item": [
+                {
+                  "name": "Get News Article By UUID",
+                  "id": "fa0746e9-c3e6-4860-bf96-7272d18c5fb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/uuid/:uuid?api_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "uuid",
+                        ":uuid"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "6544318e-ccbd-49dc-813b-973a3948d80c",
+                          "key": "uuid",
+                          "value": "<string>",
+                          "description": "(Required) UUID of the article to retrieve."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve a specific news article by its unique identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "3ce10180-03dd-478f-9678-70afb8dc764b",
+                      "name": "News article returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/uuid/:uuid?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "uuid",
+                            ":uuid"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "uuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"uuid\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"keywords\": \"<string>\",\n  \"snippet\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"image_url\": \"<uri>\",\n  \"language\": \"<string>\",\n  \"published_at\": \"<dateTime>\",\n  \"source\": \"<string>\",\n  \"relevance_score\": \"<float>\",\n  \"entities\": [\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"exchange\": \"<string>\",\n      \"exchange_long\": \"<string>\",\n      \"mic_code\": \"<string>\",\n      \"country\": \"<string>\",\n      \"type\": \"<string>\",\n      \"industry\": \"<string>\",\n      \"match_score\": \"<float>\",\n      \"sentiment_score\": \"<float>\",\n      \"highlights\": [\n        {\n          \"highlight\": \"<string>\",\n          \"sentiment\": \"<float>\",\n          \"highlighted_in\": \"<string>\"\n        },\n        {\n          \"highlight\": \"<string>\",\n          \"sentiment\": \"<float>\",\n          \"highlighted_in\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"exchange\": \"<string>\",\n      \"exchange_long\": \"<string>\",\n      \"mic_code\": \"<string>\",\n      \"country\": \"<string>\",\n      \"type\": \"<string>\",\n      \"industry\": \"<string>\",\n      \"match_score\": \"<float>\",\n      \"sentiment_score\": \"<float>\",\n      \"highlights\": [\n        {\n          \"highlight\": \"<string>\",\n          \"sentiment\": \"<float>\",\n          \"highlighted_in\": \"<string>\"\n        },\n        {\n          \"highlight\": \"<string>\",\n          \"sentiment\": \"<float>\",\n          \"highlighted_in\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"similar\": [\n    {\n      \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n    },\n    {\n      \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-3ce10180-03dd-478f-9678-70afb8dc764b"
+                    },
+                    {
+                      "id": "9adeff3a-2547-42bc-843d-89155e5e51bb",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/uuid/:uuid?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "uuid",
+                            ":uuid"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "uuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-9adeff3a-2547-42bc-843d-89155e5e51bb"
+                    },
+                    {
+                      "id": "7121f211-eab5-42b0-beda-e608f60fbc2b",
+                      "name": "Article not found.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/uuid/:uuid?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "uuid",
+                            ":uuid"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "uuid"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-7121f211-eab5-42b0-beda-e608f60fbc2b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-fa0746e9-c3e6-4860-bf96-7272d18c5fb5"
+                }
+              ],
+              "id": "a2ffbba5-1558-46bb-ba24-ca0ef6412681",
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-a2ffbba5-1558-46bb-ba24-ca0ef6412681"
+            }
+          ],
+          "id": "c93c76a2-b0bd-4f0c-ae97-320981f5c0b7",
+          "createdAt": "2026-07-28T03:05:44.000Z",
+          "updatedAt": "2026-07-28T03:05:44.000Z",
+          "uid": "35240-c93c76a2-b0bd-4f0c-ae97-320981f5c0b7"
+        },
+        {
+          "name": "stats",
+          "item": [
+            {
+              "name": "intraday",
+              "item": [
+                {
+                  "name": "Get Entity News Stats Intraday",
+                  "id": "f49c8304-b1a4-426e-9e9e-bd261ddd9ac7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/stats/intraday?api_token=<string>&interval=quarter&group_by=<string>&symbols=<string>&sentiment_gte=<float>&min_doc_count=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "stats",
+                        "intraday"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Aggregation interval for the time series.",
+                          "key": "interval",
+                          "value": "quarter"
+                        },
+                        {
+                          "description": "Field to group results by (e.g., symbol).",
+                          "key": "group_by",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum sentiment score filter.",
+                          "key": "sentiment_gte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Minimum number of articles required to include an entity.",
+                          "key": "min_doc_count",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Get an intraday time-series view of entity performance based on news sentiment, grouped by intervals."
+                  },
+                  "response": [
+                    {
+                      "id": "221bc2eb-1482-43a6-ae7b-5d602a016a40",
+                      "name": "Intraday entity news stats returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/stats/intraday?api_token=<API Key>&interval=quarter&group_by=<string>&symbols=<string>&sentiment_gte=<float>&min_doc_count=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "stats",
+                            "intraday"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Aggregation interval for the time series.",
+                              "key": "interval",
+                              "value": "quarter"
+                            },
+                            {
+                              "description": "Field to group results by (e.g., symbol).",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by comma-separated ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum sentiment score filter.",
+                              "key": "sentiment_gte",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Minimum number of articles required to include an entity.",
+                              "key": "min_doc_count",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": {}\n}",
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-221bc2eb-1482-43a6-ae7b-5d602a016a40"
+                    },
+                    {
+                      "id": "0add9ba2-de51-4945-bba3-87836bbafeb3",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/stats/intraday?api_token=<API Key>&interval=quarter&group_by=<string>&symbols=<string>&sentiment_gte=<float>&min_doc_count=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "stats",
+                            "intraday"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Aggregation interval for the time series.",
+                              "key": "interval",
+                              "value": "quarter"
+                            },
+                            {
+                              "description": "Field to group results by (e.g., symbol).",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by comma-separated ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum sentiment score filter.",
+                              "key": "sentiment_gte",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Minimum number of articles required to include an entity.",
+                              "key": "min_doc_count",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-0add9ba2-de51-4945-bba3-87836bbafeb3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-f49c8304-b1a4-426e-9e9e-bd261ddd9ac7"
+                }
+              ],
+              "id": "5eb7b653-3387-4459-9f28-4b3b7268e986",
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-5eb7b653-3387-4459-9f28-4b3b7268e986"
+            },
+            {
+              "name": "aggregation",
+              "item": [
+                {
+                  "name": "Get Entity News Stats Aggregation",
+                  "id": "54b44ceb-6787-4d3c-bbbc-762554470546",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/stats/aggregation?api_token=<string>&group_by=<string>&symbols=<string>&sentiment_gte=<float>&min_doc_count=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "stats",
+                        "aggregation"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Field to group results by.",
+                          "key": "group_by",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum sentiment score filter.",
+                          "key": "sentiment_gte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Minimum number of articles required.",
+                          "key": "min_doc_count",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Get a single-timeframe aggregation showing best and worst performing entities based on news sentiment."
+                  },
+                  "response": [
+                    {
+                      "id": "5786d107-dca0-4935-ac45-4bed9d6f84e0",
+                      "name": "Aggregated entity news stats returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/stats/aggregation?api_token=<API Key>&group_by=<string>&symbols=<string>&sentiment_gte=<float>&min_doc_count=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "stats",
+                            "aggregation"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Field to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by comma-separated ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum sentiment score filter.",
+                              "key": "sentiment_gte",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Minimum number of articles required.",
+                              "key": "min_doc_count",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"entity_key\": \"<string>\",\n      \"total_documents\": \"<integer>\",\n      \"sentiment_avg\": \"<float>\"\n    },\n    {\n      \"entity_key\": \"<string>\",\n      \"total_documents\": \"<integer>\",\n      \"sentiment_avg\": \"<float>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-5786d107-dca0-4935-ac45-4bed9d6f84e0"
+                    },
+                    {
+                      "id": "3328c12c-519c-4326-bd25-dc78d9281da4",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/stats/aggregation?api_token=<API Key>&group_by=<string>&symbols=<string>&sentiment_gte=<float>&min_doc_count=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "stats",
+                            "aggregation"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Field to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by comma-separated ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum sentiment score filter.",
+                              "key": "sentiment_gte",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Minimum number of articles required.",
+                              "key": "min_doc_count",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-3328c12c-519c-4326-bd25-dc78d9281da4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-54b44ceb-6787-4d3c-bbbc-762554470546"
+                }
+              ],
+              "id": "8fd47595-f0c5-441c-a84c-6bc203883223",
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-8fd47595-f0c5-441c-a84c-6bc203883223"
+            },
+            {
+              "name": "trending",
+              "item": [
+                {
+                  "name": "Get Trending Entities",
+                  "id": "0b7b1fae-d16c-48bb-922d-9267192a261f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/stats/trending?api_token=<string>&group_by=<string>&sentiment_gte=<float>&date_from=<dateTime>&date_to=<dateTime>&min_doc_count=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "stats",
+                        "trending"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Field to group results by.",
+                          "key": "group_by",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum sentiment score filter.",
+                          "key": "sentiment_gte",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Start date/time for the trending window.",
+                          "key": "date_from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date/time for the trending window.",
+                          "key": "date_to",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Minimum number of articles required.",
+                          "key": "min_doc_count",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Identify trending entities based on news volume and sentiment within a specified timeframe."
+                  },
+                  "response": [
+                    {
+                      "id": "8ca8c2a9-7edb-4673-916d-63302da2ebcc",
+                      "name": "Trending entities returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/stats/trending?api_token=<API Key>&group_by=<string>&sentiment_gte=<float>&date_from=<dateTime>&date_to=<dateTime>&min_doc_count=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "stats",
+                            "trending"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Field to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum sentiment score filter.",
+                              "key": "sentiment_gte",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Start date/time for the trending window.",
+                              "key": "date_from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "End date/time for the trending window.",
+                              "key": "date_to",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Minimum number of articles required.",
+                              "key": "min_doc_count",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"entity_key\": \"<string>\",\n      \"document_count\": \"<integer>\",\n      \"sentiment_avg\": \"<float>\",\n      \"relevance_score\": \"<float>\"\n    },\n    {\n      \"entity_key\": \"<string>\",\n      \"document_count\": \"<integer>\",\n      \"sentiment_avg\": \"<float>\",\n      \"relevance_score\": \"<float>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-8ca8c2a9-7edb-4673-916d-63302da2ebcc"
+                    },
+                    {
+                      "id": "8d226188-4b7e-4a57-98b4-a7df461c66a7",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/news/stats/trending?api_token=<API Key>&group_by=<string>&sentiment_gte=<float>&date_from=<dateTime>&date_to=<dateTime>&min_doc_count=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "news",
+                            "stats",
+                            "trending"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "Field to group results by.",
+                              "key": "group_by",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum sentiment score filter.",
+                              "key": "sentiment_gte",
+                              "value": "<float>"
+                            },
+                            {
+                              "description": "Start date/time for the trending window.",
+                              "key": "date_from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "End date/time for the trending window.",
+                              "key": "date_to",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Minimum number of articles required.",
+                              "key": "min_doc_count",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:44.000Z",
+                      "updatedAt": "2026-07-28T03:05:44.000Z",
+                      "uid": "35240-8d226188-4b7e-4a57-98b4-a7df461c66a7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-0b7b1fae-d16c-48bb-922d-9267192a261f"
+                }
+              ],
+              "id": "783740c9-d82e-4869-a576-3f4cfeb0edb5",
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-783740c9-d82e-4869-a576-3f4cfeb0edb5"
+            }
+          ],
+          "id": "2c4f9a37-2ac8-412e-9d76-35a7946a04b8",
+          "createdAt": "2026-07-28T03:05:44.000Z",
+          "updatedAt": "2026-07-28T03:05:44.000Z",
+          "uid": "35240-2c4f9a37-2ac8-412e-9d76-35a7946a04b8"
+        },
+        {
+          "name": "sources",
+          "item": [
+            {
+              "name": "Get News Sources",
+              "id": "fcc6021a-1193-470f-8825-84ecb3002856",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/news/sources?api_token=<string>&distinct_domain=<boolean>&language=<string>&page=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "news",
+                    "sources"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return only distinct domains.",
+                      "key": "distinct_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter sources by language code.",
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number for pagination.",
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "View all available news sources that can be used to filter other API requests. Sources span 5,000+ outlets in 30+ languages."
+              },
+              "response": [
+                {
+                  "id": "533d2381-4ed7-423a-bb00-f6d152ef2ff5",
+                  "name": "News sources returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/sources?api_token=<API Key>&distinct_domain=<boolean>&language=<string>&page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "sources"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Return only distinct domains.",
+                          "key": "distinct_domain",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter sources by language code.",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number for pagination.",
+                          "key": "page",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"source_id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"language\": \"<string>\"\n    },\n    {\n      \"source_id\": \"<string>\",\n      \"domain\": \"<string>\",\n      \"language\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-533d2381-4ed7-423a-bb00-f6d152ef2ff5"
+                },
+                {
+                  "id": "738ef76a-d0b8-4b35-a090-7175238909af",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/news/sources?api_token=<API Key>&distinct_domain=<boolean>&language=<string>&page=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "news",
+                        "sources"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Return only distinct domains.",
+                          "key": "distinct_domain",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter sources by language code.",
+                          "key": "language",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Page number for pagination.",
+                          "key": "page",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:44.000Z",
+                  "updatedAt": "2026-07-28T03:05:44.000Z",
+                  "uid": "35240-738ef76a-d0b8-4b35-a090-7175238909af"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:44.000Z",
+              "updatedAt": "2026-07-28T03:05:44.000Z",
+              "uid": "35240-fcc6021a-1193-470f-8825-84ecb3002856"
+            }
+          ],
+          "id": "f8269d74-0e31-4138-95ae-eacd44e7b878",
+          "createdAt": "2026-07-28T03:05:44.000Z",
+          "updatedAt": "2026-07-28T03:05:44.000Z",
+          "uid": "35240-f8269d74-0e31-4138-95ae-eacd44e7b878"
+        }
+      ],
+      "id": "47cce2c0-5a69-469d-be92-3752547eb0df",
+      "createdAt": "2026-07-28T03:05:44.000Z",
+      "updatedAt": "2026-07-28T03:05:44.000Z",
+      "uid": "35240-47cce2c0-5a69-469d-be92-3752547eb0df"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.stockdata.org/v1"
+    }
+  ]
+}

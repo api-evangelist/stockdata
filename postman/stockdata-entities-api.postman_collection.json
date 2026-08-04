@@ -1,0 +1,547 @@
+{
+  "info": {
+    "_postman_id": "cb30daea-5d72-4e7f-8f83-2d55c7f36679",
+    "name": "StockData Entities API",
+    "description": "StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:05:43.000Z",
+    "updatedAt": "2026-07-28T03:05:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cb30daea-5d72-4e7f-8f83-2d55c7f36679"
+  },
+  "item": [
+    {
+      "name": "entity",
+      "item": [
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Search Entities",
+              "id": "577ca24d-ee18-4c5b-943a-009835fcfc4a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/entity/search?api_token=<string>&search=<string>&symbols=<string>&exchanges=<string>&types=<string>&industries=<string>&countries=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "entity",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Search query matching entity name or symbol.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by comma-separated ticker symbols.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exchange codes.",
+                      "key": "exchanges",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by entity type (equity, etf, index, etc.).",
+                      "key": "types",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by industry classification.",
+                      "key": "industries",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by country code.",
+                      "key": "countries",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Dynamic search for financial entities (stocks, ETFs, indices, crypto, currencies) with filtering by type, industry, exchange, and country."
+              },
+              "response": [
+                {
+                  "id": "84a095e0-0873-48ee-9f79-cc4c0c02feef",
+                  "name": "Entity search results returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/search?api_token=<API Key>&search=<string>&symbols=<string>&exchanges=<string>&types=<string>&industries=<string>&countries=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Search query matching entity name or symbol.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exchange codes.",
+                          "key": "exchanges",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by entity type (equity, etf, index, etc.).",
+                          "key": "types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by industry classification.",
+                          "key": "industries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by country code.",
+                          "key": "countries",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"industry\": \"<string>\",\n      \"exchange\": \"<string>\",\n      \"exchange_long\": \"<string>\",\n      \"mic_code\": \"<string>\",\n      \"country\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"symbol\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"industry\": \"<string>\",\n      \"exchange\": \"<string>\",\n      \"exchange_long\": \"<string>\",\n      \"mic_code\": \"<string>\",\n      \"country\": \"<string>\",\n      \"currency\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:43.000Z",
+                  "updatedAt": "2026-07-28T03:05:43.000Z",
+                  "uid": "35240-84a095e0-0873-48ee-9f79-cc4c0c02feef"
+                },
+                {
+                  "id": "877f83b7-5e98-4e9a-9b75-e93136bc93c2",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/search?api_token=<API Key>&search=<string>&symbols=<string>&exchanges=<string>&types=<string>&industries=<string>&countries=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "Search query matching entity name or symbol.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by comma-separated ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exchange codes.",
+                          "key": "exchanges",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by entity type (equity, etf, index, etc.).",
+                          "key": "types",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by industry classification.",
+                          "key": "industries",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by country code.",
+                          "key": "countries",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:43.000Z",
+                  "updatedAt": "2026-07-28T03:05:43.000Z",
+                  "uid": "35240-877f83b7-5e98-4e9a-9b75-e93136bc93c2"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:43.000Z",
+              "updatedAt": "2026-07-28T03:05:43.000Z",
+              "uid": "35240-577ca24d-ee18-4c5b-943a-009835fcfc4a"
+            }
+          ],
+          "id": "a830c995-6519-48c6-be10-841a950cc533",
+          "createdAt": "2026-07-28T03:05:43.000Z",
+          "updatedAt": "2026-07-28T03:05:43.000Z",
+          "uid": "35240-a830c995-6519-48c6-be10-841a950cc533"
+        },
+        {
+          "name": "type",
+          "item": [
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "List Entity Types",
+                  "id": "edaf1f81-7088-45b8-bec0-242117ab96bd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/type/list?api_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        "type",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Returns all supported entity types including equity, index, ETF, mutual fund, currency, and cryptocurrency."
+                  },
+                  "response": [
+                    {
+                      "id": "00cefe41-da70-4fbb-84db-a102075e58d1",
+                      "name": "Entity types list returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/type/list?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            "type",
+                            "list"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:43.000Z",
+                      "updatedAt": "2026-07-28T03:05:43.000Z",
+                      "uid": "35240-00cefe41-da70-4fbb-84db-a102075e58d1"
+                    },
+                    {
+                      "id": "8987b013-0eb3-4914-a579-1724173d881c",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/type/list?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            "type",
+                            "list"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:43.000Z",
+                      "updatedAt": "2026-07-28T03:05:43.000Z",
+                      "uid": "35240-8987b013-0eb3-4914-a579-1724173d881c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:43.000Z",
+                  "updatedAt": "2026-07-28T03:05:43.000Z",
+                  "uid": "35240-edaf1f81-7088-45b8-bec0-242117ab96bd"
+                }
+              ],
+              "id": "392ca016-944a-44a9-b4d5-db2caecf403d",
+              "createdAt": "2026-07-28T03:05:43.000Z",
+              "updatedAt": "2026-07-28T03:05:43.000Z",
+              "uid": "35240-392ca016-944a-44a9-b4d5-db2caecf403d"
+            }
+          ],
+          "id": "0d7d119d-7060-4359-ad61-fbbfcfaba459",
+          "createdAt": "2026-07-28T03:05:43.000Z",
+          "updatedAt": "2026-07-28T03:05:43.000Z",
+          "uid": "35240-0d7d119d-7060-4359-ad61-fbbfcfaba459"
+        },
+        {
+          "name": "industry",
+          "item": [
+            {
+              "name": "list",
+              "item": [
+                {
+                  "name": "List Industries",
+                  "id": "33989a28-a816-4f6a-8eaf-484c961aaf07",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/entity/industry/list?api_token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "entity",
+                        "industry",
+                        "list"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve all supported industry classifications for entity filtering."
+                  },
+                  "response": [
+                    {
+                      "id": "262e088e-1c76-4481-9580-d82ba2d83bc6",
+                      "name": "Industry list returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/industry/list?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            "industry",
+                            "list"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"data\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:43.000Z",
+                      "updatedAt": "2026-07-28T03:05:43.000Z",
+                      "uid": "35240-262e088e-1c76-4481-9580-d82ba2d83bc6"
+                    },
+                    {
+                      "id": "d3cdac7f-ee62-442c-9c2c-00257c613512",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/entity/industry/list?api_token=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "entity",
+                            "industry",
+                            "list"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:43.000Z",
+                      "updatedAt": "2026-07-28T03:05:43.000Z",
+                      "uid": "35240-d3cdac7f-ee62-442c-9c2c-00257c613512"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:43.000Z",
+                  "updatedAt": "2026-07-28T03:05:43.000Z",
+                  "uid": "35240-33989a28-a816-4f6a-8eaf-484c961aaf07"
+                }
+              ],
+              "id": "64725bea-72c1-4c78-a811-e3b1423c61c3",
+              "createdAt": "2026-07-28T03:05:43.000Z",
+              "updatedAt": "2026-07-28T03:05:43.000Z",
+              "uid": "35240-64725bea-72c1-4c78-a811-e3b1423c61c3"
+            }
+          ],
+          "id": "c8644406-c596-4263-acd2-47583afa5e69",
+          "createdAt": "2026-07-28T03:05:43.000Z",
+          "updatedAt": "2026-07-28T03:05:43.000Z",
+          "uid": "35240-c8644406-c596-4263-acd2-47583afa5e69"
+        }
+      ],
+      "id": "ca764df8-dc65-4026-bc7b-314bac76990f",
+      "createdAt": "2026-07-28T03:05:43.000Z",
+      "updatedAt": "2026-07-28T03:05:43.000Z",
+      "uid": "35240-ca764df8-dc65-4026-bc7b-314bac76990f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.stockdata.org/v1"
+    }
+  ]
+}

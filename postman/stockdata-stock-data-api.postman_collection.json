@@ -1,0 +1,1351 @@
+{
+  "info": {
+    "_postman_id": "e6a5ea0a-3563-4c00-af9b-107118db2ced",
+    "name": "StockData Entities Stock Data API",
+    "description": "StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:05:45.000Z",
+    "updatedAt": "2026-07-28T03:05:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e6a5ea0a-3563-4c00-af9b-107118db2ced"
+  },
+  "item": [
+    {
+      "name": "data",
+      "item": [
+        {
+          "name": "quote",
+          "item": [
+            {
+              "name": "Get Stock Quote",
+              "id": "a9bb1791-5268-4dc2-8d9c-67cbe0604e43",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data/quote?api_token=<string>&symbols=<string>&extended_hours=<boolean>&key_by_ticker=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data",
+                    "quote"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA).",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Include pre/post market extended hours data.",
+                      "key": "extended_hours",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Key response data by ticker symbol instead of array index.",
+                      "key": "key_by_ticker",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "description": "Get real-time prices for US-listed stocks, updated from trade reports from IEX. Includes pre and post market data."
+              },
+              "response": [
+                {
+                  "id": "26e92cd1-cd8a-4bc0-9f3d-b7dbc4a6b343",
+                  "name": "Stock quote data returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/quote?api_token=<API Key>&symbols=<string>&extended_hours=<boolean>&key_by_ticker=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "quote"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA).",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include pre/post market extended hours data.",
+                          "key": "extended_hours",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Key response data by ticker symbol instead of array index.",
+                          "key": "key_by_ticker",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"ticker\": \"<string>\",\n      \"name\": \"<string>\",\n      \"exchange_short\": \"<string>\",\n      \"mic_code\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"price\": \"<float>\",\n      \"day_high\": \"<float>\",\n      \"day_low\": \"<float>\",\n      \"day_open\": \"<float>\",\n      \"52_week_high\": \"<float>\",\n      \"52_week_low\": \"<float>\",\n      \"market_cap\": \"<integer>\",\n      \"last_trade_time\": \"<dateTime>\",\n      \"is_extended_hours_price\": \"<boolean>\",\n      \"volume\": \"<integer>\",\n      \"previous_close_price\": \"<float>\"\n    },\n    {\n      \"ticker\": \"<string>\",\n      \"name\": \"<string>\",\n      \"exchange_short\": \"<string>\",\n      \"mic_code\": \"<string>\",\n      \"currency\": \"<string>\",\n      \"price\": \"<float>\",\n      \"day_high\": \"<float>\",\n      \"day_low\": \"<float>\",\n      \"day_open\": \"<float>\",\n      \"52_week_high\": \"<float>\",\n      \"52_week_low\": \"<float>\",\n      \"market_cap\": \"<integer>\",\n      \"last_trade_time\": \"<dateTime>\",\n      \"is_extended_hours_price\": \"<boolean>\",\n      \"volume\": \"<integer>\",\n      \"previous_close_price\": \"<float>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-26e92cd1-cd8a-4bc0-9f3d-b7dbc4a6b343"
+                },
+                {
+                  "id": "4ea925f2-4235-4f7d-88e8-4209655bec63",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/quote?api_token=<API Key>&symbols=<string>&extended_hours=<boolean>&key_by_ticker=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "quote"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA).",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include pre/post market extended hours data.",
+                          "key": "extended_hours",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Key response data by ticker symbol instead of array index.",
+                          "key": "key_by_ticker",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-4ea925f2-4235-4f7d-88e8-4209655bec63"
+                },
+                {
+                  "id": "ae1856b8-ebbb-47d9-beb8-d36916131a73",
+                  "name": "Rate limit exceeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/quote?api_token=<API Key>&symbols=<string>&extended_hours=<boolean>&key_by_ticker=<boolean>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "quote"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA).",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Include pre/post market extended hours data.",
+                          "key": "extended_hours",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Key response data by ticker symbol instead of array index.",
+                          "key": "key_by_ticker",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-ae1856b8-ebbb-47d9-beb8-d36916131a73"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:46.000Z",
+              "updatedAt": "2026-07-28T03:05:46.000Z",
+              "uid": "35240-a9bb1791-5268-4dc2-8d9c-67cbe0604e43"
+            }
+          ],
+          "id": "91c433f4-d44c-42af-8b55-95cea53fec00",
+          "createdAt": "2026-07-28T03:05:46.000Z",
+          "updatedAt": "2026-07-28T03:05:46.000Z",
+          "uid": "35240-91c433f4-d44c-42af-8b55-95cea53fec00"
+        },
+        {
+          "name": "intraday",
+          "item": [
+            {
+              "name": "adjusted",
+              "item": [
+                {
+                  "name": "Get Adjusted Intraday Data",
+                  "id": "e541795f-ef8d-440d-b1b5-99ba60e7f839",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/intraday/adjusted?api_token=<string>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "intraday",
+                        "adjusted"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval (minute or hour).",
+                          "key": "interval",
+                          "value": "hour"
+                        },
+                        {
+                          "description": "Start date/time for the data range (ISO 8601).",
+                          "key": "date_from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date/time for the data range (ISO 8601).",
+                          "key": "date_to",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    },
+                    "description": "Get historical intraday data adjusted for splits, spanning 7+ years. Returns OHLCV data at minute or hour intervals."
+                  },
+                  "response": [
+                    {
+                      "id": "2144f7d6-59b5-4923-b698-eb3c3ea32bef",
+                      "name": "Adjusted intraday data returned successfully.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/data/intraday/adjusted?api_token=<API Key>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data",
+                            "intraday",
+                            "adjusted"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "(Required) Comma-separated list of stock ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Data interval (minute or hour).",
+                              "key": "interval",
+                              "value": "hour"
+                            },
+                            {
+                              "description": "Start date/time for the data range (ISO 8601).",
+                              "key": "date_from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "End date/time for the data range (ISO 8601).",
+                              "key": "date_to",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Sort order for results.",
+                              "key": "sort",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"date\": \"<dateTime>\",\n      \"ticker\": \"<string>\",\n      \"open\": \"<float>\",\n      \"high\": \"<float>\",\n      \"low\": \"<float>\",\n      \"close\": \"<float>\",\n      \"volume\": \"<integer>\",\n      \"is_extended_hours\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<dateTime>\",\n      \"ticker\": \"<string>\",\n      \"open\": \"<float>\",\n      \"high\": \"<float>\",\n      \"low\": \"<float>\",\n      \"close\": \"<float>\",\n      \"volume\": \"<integer>\",\n      \"is_extended_hours\": \"<boolean>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:05:46.000Z",
+                      "updatedAt": "2026-07-28T03:05:46.000Z",
+                      "uid": "35240-2144f7d6-59b5-4923-b698-eb3c3ea32bef"
+                    },
+                    {
+                      "id": "0e017f07-0441-4592-ba13-943c1132849f",
+                      "name": "Invalid or missing API token.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/data/intraday/adjusted?api_token=<API Key>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data",
+                            "intraday",
+                            "adjusted"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "(Required) Comma-separated list of stock ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Data interval (minute or hour).",
+                              "key": "interval",
+                              "value": "hour"
+                            },
+                            {
+                              "description": "Start date/time for the data range (ISO 8601).",
+                              "key": "date_from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "End date/time for the data range (ISO 8601).",
+                              "key": "date_to",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Sort order for results.",
+                              "key": "sort",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:46.000Z",
+                      "updatedAt": "2026-07-28T03:05:46.000Z",
+                      "uid": "35240-0e017f07-0441-4592-ba13-943c1132849f"
+                    },
+                    {
+                      "id": "0a47b217-6d94-44ed-82a8-deef3f666753",
+                      "name": "Rate limit exceeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/data/intraday/adjusted?api_token=<API Key>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "data",
+                            "intraday",
+                            "adjusted"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) Your API token from the StockData dashboard.",
+                              "key": "api_token",
+                              "value": "<API Key>"
+                            },
+                            {
+                              "description": "(Required) Comma-separated list of stock ticker symbols.",
+                              "key": "symbols",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Data interval (minute or hour).",
+                              "key": "interval",
+                              "value": "hour"
+                            },
+                            {
+                              "description": "Start date/time for the data range (ISO 8601).",
+                              "key": "date_from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "End date/time for the data range (ISO 8601).",
+                              "key": "date_to",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Sort order for results.",
+                              "key": "sort",
+                              "value": "asc"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:05:46.000Z",
+                      "updatedAt": "2026-07-28T03:05:46.000Z",
+                      "uid": "35240-0a47b217-6d94-44ed-82a8-deef3f666753"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-e541795f-ef8d-440d-b1b5-99ba60e7f839"
+                }
+              ],
+              "id": "3a07a5f4-5c27-401c-8211-8694418fb7ce",
+              "createdAt": "2026-07-28T03:05:46.000Z",
+              "updatedAt": "2026-07-28T03:05:46.000Z",
+              "uid": "35240-3a07a5f4-5c27-401c-8211-8694418fb7ce"
+            },
+            {
+              "name": "Get Raw Intraday Data",
+              "id": "c8c4ae73-e411-465c-a578-d7f653d662de",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data/intraday?api_token=<string>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data",
+                    "intraday"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of stock ticker symbols.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Data interval (minute or hour).",
+                      "key": "interval",
+                      "value": "hour"
+                    },
+                    {
+                      "description": "Start date/time for the data range (ISO 8601).",
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "End date/time for the data range (ISO 8601).",
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Sort order for results.",
+                      "key": "sort",
+                      "value": "asc"
+                    }
+                  ]
+                },
+                "description": "Get historical intraday data without split adjustments, spanning 7+ years. Returns OHLCV data at minute or hour intervals."
+              },
+              "response": [
+                {
+                  "id": "eac2d707-87c2-4a4e-80ed-69a3d1f39d87",
+                  "name": "Raw intraday data returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/intraday?api_token=<API Key>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "intraday"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval (minute or hour).",
+                          "key": "interval",
+                          "value": "hour"
+                        },
+                        {
+                          "description": "Start date/time for the data range (ISO 8601).",
+                          "key": "date_from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date/time for the data range (ISO 8601).",
+                          "key": "date_to",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"date\": \"<dateTime>\",\n      \"ticker\": \"<string>\",\n      \"open\": \"<float>\",\n      \"high\": \"<float>\",\n      \"low\": \"<float>\",\n      \"close\": \"<float>\",\n      \"volume\": \"<integer>\",\n      \"is_extended_hours\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<dateTime>\",\n      \"ticker\": \"<string>\",\n      \"open\": \"<float>\",\n      \"high\": \"<float>\",\n      \"low\": \"<float>\",\n      \"close\": \"<float>\",\n      \"volume\": \"<integer>\",\n      \"is_extended_hours\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-eac2d707-87c2-4a4e-80ed-69a3d1f39d87"
+                },
+                {
+                  "id": "0c23e174-9788-48dc-8410-1355db2c72a6",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/intraday?api_token=<API Key>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "intraday"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval (minute or hour).",
+                          "key": "interval",
+                          "value": "hour"
+                        },
+                        {
+                          "description": "Start date/time for the data range (ISO 8601).",
+                          "key": "date_from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date/time for the data range (ISO 8601).",
+                          "key": "date_to",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-0c23e174-9788-48dc-8410-1355db2c72a6"
+                },
+                {
+                  "id": "60b589fc-2307-4d73-8768-6b5d835c8629",
+                  "name": "Rate limit exceeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/intraday?api_token=<API Key>&symbols=<string>&interval=hour&date_from=<dateTime>&date_to=<dateTime>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "intraday"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval (minute or hour).",
+                          "key": "interval",
+                          "value": "hour"
+                        },
+                        {
+                          "description": "Start date/time for the data range (ISO 8601).",
+                          "key": "date_from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "End date/time for the data range (ISO 8601).",
+                          "key": "date_to",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-60b589fc-2307-4d73-8768-6b5d835c8629"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:46.000Z",
+              "updatedAt": "2026-07-28T03:05:46.000Z",
+              "uid": "35240-c8c4ae73-e411-465c-a578-d7f653d662de"
+            }
+          ],
+          "id": "9ca082b8-9dfd-44f8-a102-58e19d927450",
+          "createdAt": "2026-07-28T03:05:46.000Z",
+          "updatedAt": "2026-07-28T03:05:46.000Z",
+          "uid": "35240-9ca082b8-9dfd-44f8-a102-58e19d927450"
+        },
+        {
+          "name": "eod",
+          "item": [
+            {
+              "name": "Get End-of-Day Historical Data",
+              "id": "e46078a9-2b96-41ee-8a0f-049cd99ffd4b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data/eod?api_token=<string>&symbols=<string>&interval=quarter&date_from=<date>&date_to=<date>&sort=asc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data",
+                    "eod"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of stock ticker symbols.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Data interval.",
+                      "key": "interval",
+                      "value": "quarter"
+                    },
+                    {
+                      "description": "Start date for the data range.",
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for the data range.",
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Sort order for results.",
+                      "key": "sort",
+                      "value": "asc"
+                    }
+                  ]
+                },
+                "description": "Get historical end-of-day data for US stocks, adjusted for splits. Supports daily, weekly, monthly, quarterly, and yearly intervals."
+              },
+              "response": [
+                {
+                  "id": "f8e05bd4-ba51-4a90-92fc-cc40112a73b6",
+                  "name": "End-of-day data returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/eod?api_token=<API Key>&symbols=<string>&interval=quarter&date_from=<date>&date_to=<date>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "eod"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval.",
+                          "key": "interval",
+                          "value": "quarter"
+                        },
+                        {
+                          "description": "Start date for the data range.",
+                          "key": "date_from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for the data range.",
+                          "key": "date_to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"date\": \"<dateTime>\",\n      \"ticker\": \"<string>\",\n      \"open\": \"<float>\",\n      \"high\": \"<float>\",\n      \"low\": \"<float>\",\n      \"close\": \"<float>\",\n      \"volume\": \"<integer>\",\n      \"is_extended_hours\": \"<boolean>\"\n    },\n    {\n      \"date\": \"<dateTime>\",\n      \"ticker\": \"<string>\",\n      \"open\": \"<float>\",\n      \"high\": \"<float>\",\n      \"low\": \"<float>\",\n      \"close\": \"<float>\",\n      \"volume\": \"<integer>\",\n      \"is_extended_hours\": \"<boolean>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-f8e05bd4-ba51-4a90-92fc-cc40112a73b6"
+                },
+                {
+                  "id": "e93ef948-6d57-4ebe-a8e5-2af2e7245d26",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/eod?api_token=<API Key>&symbols=<string>&interval=quarter&date_from=<date>&date_to=<date>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "eod"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval.",
+                          "key": "interval",
+                          "value": "quarter"
+                        },
+                        {
+                          "description": "Start date for the data range.",
+                          "key": "date_from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for the data range.",
+                          "key": "date_to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-e93ef948-6d57-4ebe-a8e5-2af2e7245d26"
+                },
+                {
+                  "id": "1eded306-7113-44c1-bd02-eabac1fcbc8b",
+                  "name": "Rate limit exceeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/eod?api_token=<API Key>&symbols=<string>&interval=quarter&date_from=<date>&date_to=<date>&sort=asc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "eod"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Data interval.",
+                          "key": "interval",
+                          "value": "quarter"
+                        },
+                        {
+                          "description": "Start date for the data range.",
+                          "key": "date_from",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "End date for the data range.",
+                          "key": "date_to",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Sort order for results.",
+                          "key": "sort",
+                          "value": "asc"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-1eded306-7113-44c1-bd02-eabac1fcbc8b"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:46.000Z",
+              "updatedAt": "2026-07-28T03:05:46.000Z",
+              "uid": "35240-e46078a9-2b96-41ee-8a0f-049cd99ffd4b"
+            }
+          ],
+          "id": "d161eae6-e380-4174-9cf9-f5a9a7bdff02",
+          "createdAt": "2026-07-28T03:05:46.000Z",
+          "updatedAt": "2026-07-28T03:05:46.000Z",
+          "uid": "35240-d161eae6-e380-4174-9cf9-f5a9a7bdff02"
+        },
+        {
+          "name": "splits",
+          "item": [
+            {
+              "name": "Get Stock Splits",
+              "id": "b7f4f11f-28ae-422c-894b-82e4ca10daaa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data/splits?api_token=<string>&symbols=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data",
+                    "splits"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of stock ticker symbols.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Retrieve historical stock split information for US-listed stocks."
+              },
+              "response": [
+                {
+                  "id": "4607a702-86c5-40ed-b026-0dd5c5e43a1c",
+                  "name": "Stock splits data returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/splits?api_token=<API Key>&symbols=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "splits"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"ticker\": \"<string>\",\n      \"date\": \"<date>\",\n      \"numerator\": \"<number>\",\n      \"denominator\": \"<number>\",\n      \"ratio\": \"<string>\"\n    },\n    {\n      \"ticker\": \"<string>\",\n      \"date\": \"<date>\",\n      \"numerator\": \"<number>\",\n      \"denominator\": \"<number>\",\n      \"ratio\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-4607a702-86c5-40ed-b026-0dd5c5e43a1c"
+                },
+                {
+                  "id": "1d793d4f-cf4c-442c-9e80-4073a8de0d17",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/splits?api_token=<API Key>&symbols=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "splits"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-1d793d4f-cf4c-442c-9e80-4073a8de0d17"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:46.000Z",
+              "updatedAt": "2026-07-28T03:05:46.000Z",
+              "uid": "35240-b7f4f11f-28ae-422c-894b-82e4ca10daaa"
+            }
+          ],
+          "id": "78b8d960-83c5-448e-b2e2-eca0ed77ef79",
+          "createdAt": "2026-07-28T03:05:46.000Z",
+          "updatedAt": "2026-07-28T03:05:46.000Z",
+          "uid": "35240-78b8d960-83c5-448e-b2e2-eca0ed77ef79"
+        },
+        {
+          "name": "dividends",
+          "item": [
+            {
+              "name": "Get Stock Dividends",
+              "id": "ac257178-94c6-49ea-a183-d4a4901fefb2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/data/dividends?api_token=<string>&symbols=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "data",
+                    "dividends"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Your API token from the StockData dashboard.",
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Comma-separated list of stock ticker symbols.",
+                      "key": "symbols",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Access historical dividend payment records for US-listed stocks."
+              },
+              "response": [
+                {
+                  "id": "20fd0ddb-21b6-45bf-adc7-f54059710847",
+                  "name": "Dividend data returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/dividends?api_token=<API Key>&symbols=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "dividends"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"meta\": {\n    \"found\": \"<integer>\",\n    \"returned\": \"<integer>\",\n    \"limit\": \"<integer>\",\n    \"page\": \"<integer>\"\n  },\n  \"data\": [\n    {\n      \"ticker\": \"<string>\",\n      \"date\": \"<date>\",\n      \"amount\": \"<float>\"\n    },\n    {\n      \"ticker\": \"<string>\",\n      \"date\": \"<date>\",\n      \"amount\": \"<float>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-20fd0ddb-21b6-45bf-adc7-f54059710847"
+                },
+                {
+                  "id": "2de5d910-dbc1-439a-98fd-a703aedae337",
+                  "name": "Invalid or missing API token.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/data/dividends?api_token=<API Key>&symbols=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "data",
+                        "dividends"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Your API token from the StockData dashboard.",
+                          "key": "api_token",
+                          "value": "<API Key>"
+                        },
+                        {
+                          "description": "(Required) Comma-separated list of stock ticker symbols.",
+                          "key": "symbols",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:05:46.000Z",
+                  "updatedAt": "2026-07-28T03:05:46.000Z",
+                  "uid": "35240-2de5d910-dbc1-439a-98fd-a703aedae337"
+                }
+              ],
+              "createdAt": "2026-07-28T03:05:46.000Z",
+              "updatedAt": "2026-07-28T03:05:46.000Z",
+              "uid": "35240-ac257178-94c6-49ea-a183-d4a4901fefb2"
+            }
+          ],
+          "id": "6ea2c107-5953-44c3-a806-37fedc24f51a",
+          "createdAt": "2026-07-28T03:05:46.000Z",
+          "updatedAt": "2026-07-28T03:05:46.000Z",
+          "uid": "35240-6ea2c107-5953-44c3-a806-37fedc24f51a"
+        }
+      ],
+      "id": "b4c64c30-9883-4d8f-9389-deb82be1df5a",
+      "createdAt": "2026-07-28T03:05:46.000Z",
+      "updatedAt": "2026-07-28T03:05:46.000Z",
+      "uid": "35240-b4c64c30-9883-4d8f-9389-deb82be1df5a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.stockdata.org/v1"
+    }
+  ]
+}
