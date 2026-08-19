@@ -1,0 +1,260 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockData Entities Stock Data API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stock Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Stock Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/quote",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA)."
+              },
+              {
+                "name": "extended_hours",
+                "value": "",
+                "type": "query",
+                "description": "Include pre/post market extended hours data."
+              },
+              {
+                "name": "key_by_ticker",
+                "value": "",
+                "type": "query",
+                "description": "Key response data by ticker symbol instead of array index."
+              }
+            ]
+          },
+          "docs": "Get real-time prices for US-listed stocks, updated from trade reports from IEX. Includes pre and post market data."
+        },
+        {
+          "info": {
+            "name": "Get Adjusted Intraday Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/intraday/adjusted",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval (minute or hour)."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              }
+            ]
+          },
+          "docs": "Get historical intraday data adjusted for splits, spanning 7+ years. Returns OHLCV data at minute or hour intervals."
+        },
+        {
+          "info": {
+            "name": "Get Raw Intraday Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/intraday",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval (minute or hour)."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date/time for the data range (ISO 8601)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              }
+            ]
+          },
+          "docs": "Get historical intraday data without split adjustments, spanning 7+ years. Returns OHLCV data at minute or hour intervals."
+        },
+        {
+          "info": {
+            "name": "Get End-of-Day Historical Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/eod",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Data interval."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date for the data range."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date for the data range."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results."
+              }
+            ]
+          },
+          "docs": "Get historical end-of-day data for US stocks, adjusted for splits. Supports daily, weekly, monthly, quarterly, and yearly intervals."
+        },
+        {
+          "info": {
+            "name": "Get Stock Splits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/splits",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              }
+            ]
+          },
+          "docs": "Retrieve historical stock split information for US-listed stocks."
+        },
+        {
+          "info": {
+            "name": "Get Stock Dividends",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/data/dividends",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of stock ticker symbols."
+              }
+            ]
+          },
+          "docs": "Access historical dividend payment records for US-listed stocks."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

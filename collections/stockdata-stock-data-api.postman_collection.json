@@ -1,0 +1,1323 @@
+{
+  "item": [
+    {
+      "id": "76294202-b730-4d17-bbb5-6d26d404942f",
+      "name": "Stock Data",
+      "description": {
+        "content": "Real-time and historical stock market price data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d922cb7a-de6f-4af9-bb1a-c9d7f25daa2b",
+          "name": "Get Stock Quote",
+          "request": {
+            "name": "Get Stock Quote",
+            "description": {
+              "content": "Get real-time prices for US-listed stocks, updated from trade reports from IEX. Includes pre and post market data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "quote"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols (e.g., AAPL,MSFT,TSLA)."
+                },
+                {
+                  "disabled": false,
+                  "key": "extended_hours",
+                  "value": "<boolean>",
+                  "description": "Include pre/post market extended hours data."
+                },
+                {
+                  "disabled": false,
+                  "key": "key_by_ticker",
+                  "value": "<boolean>",
+                  "description": "Key response data by ticker symbol instead of array index."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "673836c6-128d-467f-9fbf-9e2cb8d0cec6",
+              "name": "Stock quote data returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extended_hours",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "key_by_ticker",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 4796,\n    \"returned\": 1292,\n    \"limit\": 5854,\n    \"page\": 599\n  },\n  \"data\": [\n    {\n      \"ticker\": \"string\",\n      \"name\": \"string\",\n      \"exchange_short\": \"string\",\n      \"mic_code\": \"string\",\n      \"currency\": \"string\",\n      \"price\": 1430.067438645224,\n      \"day_high\": 6249.204130879398,\n      \"day_low\": 837.8547407811321,\n      \"day_open\": 7834.2520506737665,\n      \"52_week_high\": 8167.488791469681,\n      \"52_week_low\": 3530.8236394126025,\n      \"market_cap\": 931,\n      \"last_trade_time\": \"1963-12-17T14:33:12.213Z\",\n      \"is_extended_hours_price\": true,\n      \"volume\": 4715,\n      \"previous_close_price\": 6233.425233629756\n    },\n    {\n      \"ticker\": \"string\",\n      \"name\": \"string\",\n      \"exchange_short\": \"string\",\n      \"mic_code\": \"string\",\n      \"currency\": \"string\",\n      \"price\": 2285.099354263187,\n      \"day_high\": 7483.497296602824,\n      \"day_low\": 1820.1030081761148,\n      \"day_open\": 7568.207229223784,\n      \"52_week_high\": 9958.807172472796,\n      \"52_week_low\": 8827.610403411427,\n      \"market_cap\": 2666,\n      \"last_trade_time\": \"1963-12-10T18:58:32.207Z\",\n      \"is_extended_hours_price\": false,\n      \"volume\": 7140,\n      \"previous_close_price\": 4262.076729860615\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e6b695a-00d9-45c2-979a-ec96b70dae6c",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extended_hours",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "key_by_ticker",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbd084ce-141c-4960-9a9e-e6c8828e7afb",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "quote"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "extended_hours",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "key_by_ticker",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbe7bc06-5ccf-47a0-b853-1fe870f5885d",
+          "name": "Get Adjusted Intraday Data",
+          "request": {
+            "name": "Get Adjusted Intraday Data",
+            "description": {
+              "content": "Get historical intraday data adjusted for splits, spanning 7+ years. Returns OHLCV data at minute or hour intervals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "intraday",
+                "adjusted"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "Data interval (minute or hour)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Start date/time for the data range (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End date/time for the data range (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "100069db-ddf3-4022-9d0f-d1d29e58274b",
+              "name": "Adjusted intraday data returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "intraday",
+                    "adjusted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 3234,\n    \"returned\": 4863,\n    \"limit\": 8968,\n    \"page\": 9630\n  },\n  \"data\": [\n    {\n      \"date\": \"1983-08-01T19:02:19.844Z\",\n      \"ticker\": \"string\",\n      \"open\": 6477.314173372939,\n      \"high\": 9150.249341079418,\n      \"low\": 1734.3965845967036,\n      \"close\": 5209.973299884284,\n      \"volume\": 5592,\n      \"is_extended_hours\": false\n    },\n    {\n      \"date\": \"2025-11-25T00:11:08.676Z\",\n      \"ticker\": \"string\",\n      \"open\": 9055.294308804987,\n      \"high\": 5501.376915879585,\n      \"low\": 8213.350635869518,\n      \"close\": 2786.1389843997163,\n      \"volume\": 8323,\n      \"is_extended_hours\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "902006ec-ddc9-4d09-9e56-c27a2cdc6217",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "intraday",
+                    "adjusted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e43f95ea-eb8a-40a3-b570-51f6ad7ba4a0",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "intraday",
+                    "adjusted"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8524615b-c470-4e4c-b11b-34949ec5adc0",
+          "name": "Get Raw Intraday Data",
+          "request": {
+            "name": "Get Raw Intraday Data",
+            "description": {
+              "content": "Get historical intraday data without split adjustments, spanning 7+ years. Returns OHLCV data at minute or hour intervals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "intraday"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "Data interval (minute or hour)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Start date/time for the data range (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End date/time for the data range (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d5bce4b-ab92-4530-88df-9c36e75e01f5",
+              "name": "Raw intraday data returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "intraday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 7730,\n    \"returned\": 5143,\n    \"limit\": 7623,\n    \"page\": 4541\n  },\n  \"data\": [\n    {\n      \"date\": \"1975-11-05T00:22:09.868Z\",\n      \"ticker\": \"string\",\n      \"open\": 2365.9375109475454,\n      \"high\": 6692.971277517945,\n      \"low\": 554.1219929942498,\n      \"close\": 7558.355953404904,\n      \"volume\": 9073,\n      \"is_extended_hours\": false\n    },\n    {\n      \"date\": \"1989-09-02T11:06:32.718Z\",\n      \"ticker\": \"string\",\n      \"open\": 7760.820169806621,\n      \"high\": 9721.452505340878,\n      \"low\": 9112.299499871146,\n      \"close\": 3748.370108868828,\n      \"volume\": 3762,\n      \"is_extended_hours\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5adcb2ef-5bbe-4f7e-bf2f-4a7d02ca3678",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "intraday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "98b06b36-4416-454a-9e3d-6dafd2a340e4",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "intraday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0c10000-8384-4df8-b501-b5835572c354",
+          "name": "Get End-of-Day Historical Data",
+          "request": {
+            "name": "Get End-of-Day Historical Data",
+            "description": {
+              "content": "Get historical end-of-day data for US stocks, adjusted for splits. Supports daily, weekly, monthly, quarterly, and yearly intervals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "eod"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "Data interval."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<date>",
+                  "description": "Start date for the data range."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<date>",
+                  "description": "End date for the data range."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71a268af-0585-48a7-b072-2bb8fc2c57cc",
+              "name": "End-of-day data returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 3234,\n    \"returned\": 4863,\n    \"limit\": 8968,\n    \"page\": 9630\n  },\n  \"data\": [\n    {\n      \"date\": \"1983-08-01T19:02:19.844Z\",\n      \"ticker\": \"string\",\n      \"open\": 6477.314173372939,\n      \"high\": 9150.249341079418,\n      \"low\": 1734.3965845967036,\n      \"close\": 5209.973299884284,\n      \"volume\": 5592,\n      \"is_extended_hours\": false\n    },\n    {\n      \"date\": \"2025-11-25T00:11:08.676Z\",\n      \"ticker\": \"string\",\n      \"open\": 9055.294308804987,\n      \"high\": 5501.376915879585,\n      \"low\": 8213.350635869518,\n      \"close\": 2786.1389843997163,\n      \"volume\": 8323,\n      \"is_extended_hours\": true\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42de74ba-59c8-44d7-a777-73dd2090c1ba",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "79a6b351-15f0-46a3-938d-4e001a98979d",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "eod"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0323846d-325a-42ba-a8b5-3210e315d7cc",
+          "name": "Get Stock Splits",
+          "request": {
+            "name": "Get Stock Splits",
+            "description": {
+              "content": "Retrieve historical stock split information for US-listed stocks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "splits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ef6a54c-4c0e-40e5-9ccf-da6ad27255f7",
+              "name": "Stock splits data returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "splits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 2714,\n    \"returned\": 3178,\n    \"limit\": 950,\n    \"page\": 9448\n  },\n  \"data\": [\n    {\n      \"ticker\": \"string\",\n      \"date\": \"1999-04-23\",\n      \"numerator\": 7956.199277233425,\n      \"denominator\": 6831.977206755935,\n      \"ratio\": \"string\"\n    },\n    {\n      \"ticker\": \"string\",\n      \"date\": \"2002-05-10\",\n      \"numerator\": 1456.5574256337843,\n      \"denominator\": 8377.44739004154,\n      \"ratio\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b5072b3-8f00-4795-9adb-09c2b9f556c9",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "splits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c1f666f-2c0b-4b93-aed3-f4da1103ddb1",
+          "name": "Get Stock Dividends",
+          "request": {
+            "name": "Get Stock Dividends",
+            "description": {
+              "content": "Access historical dividend payment records for US-listed stocks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "data",
+                "dividends"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of stock ticker symbols."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9d39139-8f7b-4040-b490-86756f35152b",
+              "name": "Dividend data returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 5311,\n    \"returned\": 6374,\n    \"limit\": 5921,\n    \"page\": 8828\n  },\n  \"data\": [\n    {\n      \"ticker\": \"string\",\n      \"date\": \"1980-10-12\",\n      \"amount\": 9459.812028435792\n    },\n    {\n      \"ticker\": \"string\",\n      \"date\": \"1964-08-22\",\n      \"amount\": 8445.227104519501\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c942fb6-5aa7-4b5c-8f14-bb94b0616b39",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "data",
+                    "dividends"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stockdata.org/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97fc4a01-dbbc-4f52-999e-be70f64e6ea1",
+    "name": "StockData Entities Stock Data API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,345 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockData Entities News API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_token",
+      "value": "{{api_token}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "News",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Financial News",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/all",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter news by comma-separated ticker symbols."
+              },
+              {
+                "name": "entity_types",
+                "value": "",
+                "type": "query",
+                "description": "Filter by entity types (e.g., index, equity, etf)."
+              },
+              {
+                "name": "industries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by industry classification."
+              },
+              {
+                "name": "countries",
+                "value": "",
+                "type": "query",
+                "description": "Filter by country code."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "sentiment_lte",
+                "value": "",
+                "type": "query",
+                "description": "Maximum sentiment score filter."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Full-text search query across article titles and descriptions."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter by language code (e.g., en, de, fr)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results per page (max 50)."
+              }
+            ]
+          },
+          "docs": "Get all the latest global financial news filtered by entities identified within articles, with sentiment analysis for each entity."
+        },
+        {
+          "info": {
+            "name": "Get Similar News Articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/similar/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the reference article."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter similar articles by ticker symbols."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter by language code."
+              }
+            ]
+          },
+          "docs": "Find articles similar to a specific article identified by its UUID, with relevance scores and entity data."
+        },
+        {
+          "info": {
+            "name": "Get News Article By UUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/uuid/:uuid",
+            "params": [
+              {
+                "name": "uuid",
+                "value": "",
+                "type": "path",
+                "description": "UUID of the article to retrieve."
+              },
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              }
+            ]
+          },
+          "docs": "Retrieve a specific news article by its unique identifier."
+        },
+        {
+          "info": {
+            "name": "Get Entity News Stats Intraday",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/stats/intraday",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "interval",
+                "value": "",
+                "type": "query",
+                "description": "Aggregation interval for the time series."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to group results by (e.g., symbol)."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter by comma-separated ticker symbols."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "min_doc_count",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of articles required to include an entity."
+              }
+            ]
+          },
+          "docs": "Get an intraday time-series view of entity performance based on news sentiment, grouped by intervals."
+        },
+        {
+          "info": {
+            "name": "Get Entity News Stats Aggregation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/stats/aggregation",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to group results by."
+              },
+              {
+                "name": "symbols",
+                "value": "",
+                "type": "query",
+                "description": "Filter by comma-separated ticker symbols."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "min_doc_count",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of articles required."
+              }
+            ]
+          },
+          "docs": "Get a single-timeframe aggregation showing best and worst performing entities based on news sentiment."
+        },
+        {
+          "info": {
+            "name": "Get Trending Entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/stats/trending",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "group_by",
+                "value": "",
+                "type": "query",
+                "description": "Field to group results by."
+              },
+              {
+                "name": "sentiment_gte",
+                "value": "",
+                "type": "query",
+                "description": "Minimum sentiment score filter."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Start date/time for the trending window."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "End date/time for the trending window."
+              },
+              {
+                "name": "min_doc_count",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of articles required."
+              }
+            ]
+          },
+          "docs": "Identify trending entities based on news volume and sentiment within a specified timeframe."
+        },
+        {
+          "info": {
+            "name": "Get News Sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stockdata.org/v1/news/sources",
+            "params": [
+              {
+                "name": "api_token",
+                "value": "",
+                "type": "query",
+                "description": "Your API token from the StockData dashboard."
+              },
+              {
+                "name": "distinct_domain",
+                "value": "",
+                "type": "query",
+                "description": "Return only distinct domains."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Filter sources by language code."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number for pagination."
+              }
+            ]
+          },
+          "docs": "View all available news sources that can be used to filter other API requests. Sources span 5,000+ outlets in 30+ languages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

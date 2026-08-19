@@ -1,0 +1,1590 @@
+{
+  "item": [
+    {
+      "id": "b4a9b6e9-8f3d-4a0f-a074-22a6e4ac5e1a",
+      "name": "News",
+      "description": {
+        "content": "Global financial news with sentiment analysis",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a9a7374-6f99-4d7f-96bd-e2d8ad04edfa",
+          "name": "Get Financial News",
+          "request": {
+            "name": "Get Financial News",
+            "description": {
+              "content": "Get all the latest global financial news filtered by entities identified within articles, with sentiment analysis for each entity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Filter news by comma-separated ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "entity_types",
+                  "value": "<string>",
+                  "description": "Filter by entity types (e.g., index, equity, etf)."
+                },
+                {
+                  "disabled": false,
+                  "key": "industries",
+                  "value": "<string>",
+                  "description": "Filter by industry classification."
+                },
+                {
+                  "disabled": false,
+                  "key": "countries",
+                  "value": "<string>",
+                  "description": "Filter by country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "sentiment_gte",
+                  "value": "<float>",
+                  "description": "Minimum sentiment score filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "sentiment_lte",
+                  "value": "<float>",
+                  "description": "Maximum sentiment score filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Full-text search query across article titles and descriptions."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Filter by language code (e.g., en, de, fr)."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Number of results per page (max 50)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de9403b4-d8df-4316-a9c6-6285d35c64ff",
+              "name": "News articles returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "industries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "sentiment_lte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 1831,\n    \"returned\": 8089,\n    \"limit\": 2594,\n    \"page\": 4304\n  },\n  \"data\": [\n    {\n      \"uuid\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"keywords\": \"string\",\n      \"snippet\": \"string\",\n      \"url\": \"https://ZcSTBQJrgxPQtHxa.wvwFmshEYlzbpv,m2G-ighd+e890MpYD\",\n      \"image_url\": \"http://ZzRfwtngciDFtHANnTorvscdj.vsTpwLBySFvsL9f3TNRO+2oD3FQ\",\n      \"language\": \"string\",\n      \"published_at\": \"1952-02-07T20:51:56.390Z\",\n      \"source\": \"string\",\n      \"relevance_score\": 7689.241487883338,\n      \"entities\": [\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 5309.134324242891,\n          \"sentiment_score\": 7668.399728289231,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 804.4889153512825,\n          \"sentiment_score\": 9583.844767599523,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    },\n    {\n      \"uuid\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"keywords\": \"string\",\n      \"snippet\": \"string\",\n      \"url\": \"https://xvVFHdmwavOPiUPpAxdfzHJiWdz.huohBc31rj3mJjGHW,XGCBnnkjE1TSpGAMOl.qIB4P2WXbDL-S2NM8tUx\",\n      \"image_url\": \"https://DQlqOweLBsHDzujxRTChdf.ldpfFdF3D+q9sGxrrc-Z0Q3nlgHg9m7SOwmLnYA7JvsweJLB\",\n      \"language\": \"string\",\n      \"published_at\": \"2001-04-03T01:18:11.178Z\",\n      \"source\": \"string\",\n      \"relevance_score\": 6621.822514413084,\n      \"entities\": [\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 3125.682596361666,\n          \"sentiment_score\": 2489.6823956718963,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 6159.300497369895,\n          \"sentiment_score\": 8259.41275159382,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "654166d9-fa3c-4cdb-b3d2-73393a6a0cd6",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "industries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "sentiment_lte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e4a2565-fdd3-489b-9900-41b8c5ed4249",
+              "name": "Rate limit exceeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entity_types",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "industries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "sentiment_lte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fda3a46b-7eab-4183-933b-cbcc86558998",
+          "name": "Get Similar News Articles",
+          "request": {
+            "name": "Get Similar News Articles",
+            "description": {
+              "content": "Find articles similar to a specific article identified by its UUID, with relevance scores and entity data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "similar",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Filter similar articles by ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Filter by language code."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the reference article."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16bf7916-8b89-48c7-b101-e1ecb18d827c",
+              "name": "Similar articles returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "similar",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the reference article."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 5548,\n    \"returned\": 9739,\n    \"limit\": 4073,\n    \"page\": 8779\n  },\n  \"data\": [\n    {\n      \"uuid\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"keywords\": \"string\",\n      \"snippet\": \"string\",\n      \"url\": \"http://vPLqUVgiYKRXrDGrNZgqqH.wbmzD-vvHbtdMyxY4vRSH4Q4yYaO2plo5594mvRL\",\n      \"image_url\": \"https://xMymJanuqPkULRFJoWgmtiMfk.kpuVFuq3a,deoBo9TQ8Rnau6BBYzRNTLE,5RvsMA7Gp\",\n      \"language\": \"string\",\n      \"published_at\": \"1984-04-05T12:10:02.403Z\",\n      \"source\": \"string\",\n      \"relevance_score\": 1616.1938153350775,\n      \"entities\": [\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 1505.9969348629165,\n          \"sentiment_score\": 8707.486929901073,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 1315.1837960054768,\n          \"sentiment_score\": 9048.661939859934,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    },\n    {\n      \"uuid\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"keywords\": \"string\",\n      \"snippet\": \"string\",\n      \"url\": \"http://Jp.zroMWqJfKTYJb7jtNR5YHZh7mexqMdB\",\n      \"image_url\": \"https://SgjSJIyLTJmjTSGHBVhW.hrs5,tud\",\n      \"language\": \"string\",\n      \"published_at\": \"1949-11-22T03:58:14.064Z\",\n      \"source\": \"string\",\n      \"relevance_score\": 4305.214445508547,\n      \"entities\": [\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 8021.703689273906,\n          \"sentiment_score\": 9404.836272049135,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 2139.554835019375,\n          \"sentiment_score\": 1260.8456805873648,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf6b32d4-cccb-4bc9-9521-22a739ec1b8d",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "similar",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the reference article."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9ef4b3a-e7ac-41af-b9d4-59428dc9b5c3",
+              "name": "Article not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "similar",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the reference article."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf6f4aef-eb3b-4fee-9824-4e395c2b8e1f",
+          "name": "Get News Article By UUID",
+          "request": {
+            "name": "Get News Article By UUID",
+            "description": {
+              "content": "Retrieve a specific news article by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "uuid",
+                ":uuid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "uuid",
+                  "description": "(Required) UUID of the article to retrieve."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9f29b8b-7b0e-4b53-80d2-d4e9a94feec3",
+              "name": "News article returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "uuid",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the article to retrieve."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"uuid\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"keywords\": \"string\",\n  \"snippet\": \"string\",\n  \"url\": \"https://RCsXxXpjyOtbhBTkxeY.dmmRXO891i\",\n  \"image_url\": \"http://aiQsewddcnWGROaYJHYbaHmLySWFelzn.jqbU1zv.wuSScXSDVM2HXwL2C8HgfkQUeg-599EZcDO1FPADwOEVOFhw20y\",\n  \"language\": \"string\",\n  \"published_at\": \"2005-05-17T08:20:35.923Z\",\n  \"source\": \"string\",\n  \"relevance_score\": 7716.175408953324,\n  \"entities\": [\n    {\n      \"symbol\": \"string\",\n      \"name\": \"string\",\n      \"exchange\": \"string\",\n      \"exchange_long\": \"string\",\n      \"mic_code\": \"string\",\n      \"country\": \"string\",\n      \"type\": \"string\",\n      \"industry\": \"string\",\n      \"match_score\": 3396.242234907073,\n      \"sentiment_score\": 8222.064429445027,\n      \"highlights\": [\n        {\n          \"highlight\": \"string\",\n          \"sentiment\": 6062.099565775172,\n          \"highlighted_in\": \"string\"\n        },\n        {\n          \"highlight\": \"string\",\n          \"sentiment\": 6513.2257303560245,\n          \"highlighted_in\": \"string\"\n        }\n      ]\n    },\n    {\n      \"symbol\": \"string\",\n      \"name\": \"string\",\n      \"exchange\": \"string\",\n      \"exchange_long\": \"string\",\n      \"mic_code\": \"string\",\n      \"country\": \"string\",\n      \"type\": \"string\",\n      \"industry\": \"string\",\n      \"match_score\": 5614.814306967629,\n      \"sentiment_score\": 8892.571587250104,\n      \"highlights\": [\n        {\n          \"highlight\": \"string\",\n          \"sentiment\": 9250.267008819666,\n          \"highlighted_in\": \"string\"\n        },\n        {\n          \"highlight\": \"string\",\n          \"sentiment\": 6676.258569922418,\n          \"highlighted_in\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"similar\": [\n    {\n      \"uuid\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"keywords\": \"string\",\n      \"snippet\": \"string\",\n      \"url\": \"http://sHlZxkJzjQSlqs.kghgBcWA9wc,3eHj6zr9Np-q\",\n      \"image_url\": \"https://zlpFVHlUCrrNHFUnoFZEFS.kxQUvSMB+KXINkuT\",\n      \"language\": \"string\",\n      \"published_at\": \"1961-10-29T03:59:16.184Z\",\n      \"source\": \"string\",\n      \"relevance_score\": 9099.526487726738,\n      \"entities\": [\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 6125.711580277973,\n          \"sentiment_score\": 2302.6746254266227,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 9009.026552239926,\n          \"sentiment_score\": 6761.0720066397735,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    },\n    {\n      \"uuid\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"keywords\": \"string\",\n      \"snippet\": \"string\",\n      \"url\": \"http://DcXgzaRaksgs.xkjlvoZCiiKlOUnniv3krDa64NYRI9a,VxGaeyLzI08rlV\",\n      \"image_url\": \"http://YIGISIvpuJMRO.meurdOwtS7Bj243sI4sJ8wvzGIR-hztHO3.KS\",\n      \"language\": \"string\",\n      \"published_at\": \"2003-10-06T18:50:02.280Z\",\n      \"source\": \"string\",\n      \"relevance_score\": 5590.960109255377,\n      \"entities\": [\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 5412.277384104303,\n          \"sentiment_score\": 8015.181099034662,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"symbol\": \"string\",\n          \"name\": \"string\",\n          \"exchange\": \"string\",\n          \"exchange_long\": \"string\",\n          \"mic_code\": \"string\",\n          \"country\": \"string\",\n          \"type\": \"string\",\n          \"industry\": \"string\",\n          \"match_score\": 3682.0925164079267,\n          \"sentiment_score\": 3201.0068757497224,\n          \"highlights\": [\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"highlight\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"sentiment\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"highlighted_in\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"similar\": [\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        },\n        {\n          \"value\": \"<Circular reference to #/components/schemas/NewsArticle detected>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d19768a3-ca3f-47cf-8eba-56738a57ccac",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "uuid",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the article to retrieve."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6b776d94-158b-4d2f-8788-148cb20adb9e",
+              "name": "Article not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "uuid",
+                    ":uuid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "uuid",
+                      "description": "(Required) UUID of the article to retrieve."
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a69e51bf-3a91-4eb1-bed8-ec174c45e558",
+          "name": "Get Entity News Stats Intraday",
+          "request": {
+            "name": "Get Entity News Stats Intraday",
+            "description": {
+              "content": "Get an intraday time-series view of entity performance based on news sentiment, grouped by intervals.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "stats",
+                "intraday"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "interval",
+                  "value": "<string>",
+                  "description": "Aggregation interval for the time series."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>",
+                  "description": "Field to group results by (e.g., symbol)."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Filter by comma-separated ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "sentiment_gte",
+                  "value": "<float>",
+                  "description": "Minimum sentiment score filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "min_doc_count",
+                  "value": "<integer>",
+                  "description": "Minimum number of articles required to include an entity."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55732da1-16d7-46cc-8112-210a916c4156",
+              "name": "Intraday entity news stats returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "stats",
+                    "intraday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "min_doc_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 3123,\n    \"returned\": 4382,\n    \"limit\": 6434,\n    \"page\": 5\n  },\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a7eb386f-ca16-4127-91b4-ed10dd56b9e1",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "stats",
+                    "intraday"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "interval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "min_doc_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d345e9c8-07dc-40c3-a34f-414ff1a49966",
+          "name": "Get Entity News Stats Aggregation",
+          "request": {
+            "name": "Get Entity News Stats Aggregation",
+            "description": {
+              "content": "Get a single-timeframe aggregation showing best and worst performing entities based on news sentiment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "stats",
+                "aggregation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>",
+                  "description": "Field to group results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "Filter by comma-separated ticker symbols."
+                },
+                {
+                  "disabled": false,
+                  "key": "sentiment_gte",
+                  "value": "<float>",
+                  "description": "Minimum sentiment score filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "min_doc_count",
+                  "value": "<integer>",
+                  "description": "Minimum number of articles required."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7759e808-ef81-4fa6-98ba-430bcc82444e",
+              "name": "Aggregated entity news stats returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "stats",
+                    "aggregation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "min_doc_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 8193,\n    \"returned\": 5613,\n    \"limit\": 9968,\n    \"page\": 1295\n  },\n  \"data\": [\n    {\n      \"entity_key\": \"string\",\n      \"total_documents\": 1132,\n      \"sentiment_avg\": 6230.790106305122\n    },\n    {\n      \"entity_key\": \"string\",\n      \"total_documents\": 2106,\n      \"sentiment_avg\": 3469.719755250643\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e289dc0b-3112-4245-96c9-441151e2fc13",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "stats",
+                    "aggregation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "symbols",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "min_doc_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9257104-caf3-4774-92b2-9ee5eed5de74",
+          "name": "Get Trending Entities",
+          "request": {
+            "name": "Get Trending Entities",
+            "description": {
+              "content": "Identify trending entities based on news volume and sentiment within a specified timeframe.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "stats",
+                "trending"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "group_by",
+                  "value": "<string>",
+                  "description": "Field to group results by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sentiment_gte",
+                  "value": "<float>",
+                  "description": "Minimum sentiment score filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_from",
+                  "value": "<dateTime>",
+                  "description": "Start date/time for the trending window."
+                },
+                {
+                  "disabled": false,
+                  "key": "date_to",
+                  "value": "<dateTime>",
+                  "description": "End date/time for the trending window."
+                },
+                {
+                  "disabled": false,
+                  "key": "min_doc_count",
+                  "value": "<integer>",
+                  "description": "Minimum number of articles required."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2955d3a8-1638-4c05-b304-ccf12d9d0396",
+              "name": "Trending entities returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "stats",
+                    "trending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "min_doc_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 6954,\n    \"returned\": 3146,\n    \"limit\": 4731,\n    \"page\": 8589\n  },\n  \"data\": [\n    {\n      \"entity_key\": \"string\",\n      \"document_count\": 4605,\n      \"sentiment_avg\": 3174.063588268203,\n      \"relevance_score\": 1763.917468632924\n    },\n    {\n      \"entity_key\": \"string\",\n      \"document_count\": 5339,\n      \"sentiment_avg\": 5729.608152010115,\n      \"relevance_score\": 7848.260901702153\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b9882a4-1c78-46a6-8dc8-346884355c02",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "stats",
+                    "trending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "group_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sentiment_gte",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "min_doc_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5905dbf9-e4f2-4d4f-a912-1e953ffbdcd6",
+          "name": "Get News Sources",
+          "request": {
+            "name": "Get News Sources",
+            "description": {
+              "content": "View all available news sources that can be used to filter other API requests. Sources span 5,000+ outlets in 30+ languages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "news",
+                "sources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_token",
+                  "value": "<string>",
+                  "description": "(Required) Your API token from the StockData dashboard."
+                },
+                {
+                  "disabled": false,
+                  "key": "distinct_domain",
+                  "value": "<boolean>",
+                  "description": "Return only distinct domains."
+                },
+                {
+                  "disabled": false,
+                  "key": "language",
+                  "value": "<string>",
+                  "description": "Filter sources by language code."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7503bc93-dd91-413a-9328-11d62cd99d3a",
+              "name": "News sources returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distinct_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meta\": {\n    \"found\": 3632,\n    \"returned\": 9810,\n    \"limit\": 2898,\n    \"page\": 8552\n  },\n  \"data\": [\n    {\n      \"source_id\": \"string\",\n      \"domain\": \"string\",\n      \"language\": \"string\"\n    },\n    {\n      \"source_id\": \"string\",\n      \"domain\": \"string\",\n      \"language\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "381d3ca3-5408-4c8e-ba73-5d83b6826016",
+              "name": "Invalid or missing API token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "news",
+                    "sources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "distinct_domain",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "language",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "api_token",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stockdata.org/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "caa868be-1728-4376-971e-08e756468bec",
+    "name": "StockData Entities News API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.",
+      "type": "text/plain"
+    }
+  }
+}
