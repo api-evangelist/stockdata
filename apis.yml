@@ -5,6 +5,18 @@ description: >-
   financial news and sentiment analysis. The REST API delivers market data for US-listed stocks including OHLCV data,
   splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
