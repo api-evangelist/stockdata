@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: StockData Entities API
   description: StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.
@@ -122,14 +122,14 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
-    TypeListResponse:
+    IndustryListResponse:
       type: object
       properties:
         data:
           type: array
           items:
             type: string
-          description: List of supported entity type strings.
+          description: List of supported industry classification strings.
     Entity:
       type: object
       properties:
@@ -160,6 +160,23 @@ components:
         currency:
           type: string
           description: Trading currency.
+    TypeListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+          description: List of supported entity type strings.
+    EntitySearchResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
     Meta:
       type: object
       properties:
@@ -175,23 +192,6 @@ components:
         page:
           type: integer
           description: Current page number.
-    EntitySearchResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Entity'
-    IndustryListResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-          description: List of supported industry classification strings.
   securitySchemes:
     ApiToken:
       type: apiKey

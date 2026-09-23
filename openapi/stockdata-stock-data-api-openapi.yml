@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StockData Entities Stock Data API
+  title: StockData Stock Data API
   description: StockData.org provides free real-time, intraday, and historical stock, forex, and cryptocurrency market data along with global financial news and sentiment analysis. The API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages. All endpoints require an api_token parameter.
   version: '1.0'
   contact:
@@ -319,29 +319,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Dividend'
-    EodResponse:
+    OHLCV:
       type: object
       properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OHLCV'
-    Dividend:
-      type: object
-      properties:
+        date:
+          type: string
+          format: date-time
+          description: Timestamp of the data point.
         ticker:
           type: string
           description: Stock ticker symbol.
-        date:
-          type: string
-          format: date
-          description: Dividend payment date.
-        amount:
+        open:
           type: number
           format: float
-          description: Dividend amount per share.
+          description: Opening price.
+        high:
+          type: number
+          format: float
+          description: High price.
+        low:
+          type: number
+          format: float
+          description: Low price.
+        close:
+          type: number
+          format: float
+          description: Closing price.
+        volume:
+          type: integer
+          description: Trading volume.
+        is_extended_hours:
+          type: boolean
+          description: Whether data is from extended hours.
     QuoteResponse:
       type: object
       properties:
@@ -351,6 +360,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Quote'
+    SplitsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Split'
     Quote:
       type: object
       properties:
@@ -410,6 +428,15 @@ components:
           type: number
           format: float
           description: Previous day's closing price.
+    EodResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OHLCV'
     IntradayResponse:
       type: object
       properties:
@@ -419,30 +446,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OHLCV'
-    Meta:
-      type: object
-      properties:
-        found:
-          type: integer
-          description: Total number of records matching the query.
-        returned:
-          type: integer
-          description: Number of records returned in this response.
-        limit:
-          type: integer
-          description: Maximum records per page.
-        page:
-          type: integer
-          description: Current page number.
-    SplitsResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Split'
     Split:
       type: object
       properties:
@@ -462,38 +465,35 @@ components:
         ratio:
           type: string
           description: Human-readable split ratio (e.g., 4:1).
-    OHLCV:
+    Dividend:
       type: object
       properties:
-        date:
-          type: string
-          format: date-time
-          description: Timestamp of the data point.
         ticker:
           type: string
           description: Stock ticker symbol.
-        open:
+        date:
+          type: string
+          format: date
+          description: Dividend payment date.
+        amount:
           type: number
           format: float
-          description: Opening price.
-        high:
-          type: number
-          format: float
-          description: High price.
-        low:
-          type: number
-          format: float
-          description: Low price.
-        close:
-          type: number
-          format: float
-          description: Closing price.
-        volume:
+          description: Dividend amount per share.
+    Meta:
+      type: object
+      properties:
+        found:
           type: integer
-          description: Trading volume.
-        is_extended_hours:
-          type: boolean
-          description: Whether data is from extended hours.
+          description: Total number of records matching the query.
+        returned:
+          type: integer
+          description: Number of records returned in this response.
+        limit:
+          type: integer
+          description: Maximum records per page.
+        page:
+          type: integer
+          description: Current page number.
   securitySchemes:
     ApiToken:
       type: apiKey
