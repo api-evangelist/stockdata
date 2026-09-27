@@ -385,6 +385,14 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
+    NewsStatsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: object
+          description: Date-keyed time series of entity stats.
     NewsArticle:
       type: object
       properties:
@@ -433,6 +441,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NewsArticle'
+    EntityStats:
+      type: object
+      properties:
+        entity_key:
+          type: string
+          description: Entity identifier (symbol or key).
+        total_documents:
+          type: integer
+          description: Total number of articles mentioning this entity.
+        sentiment_avg:
+          type: number
+          format: float
+          description: Average sentiment score across all articles.
+    TrendingEntity:
+      type: object
+      properties:
+        entity_key:
+          type: string
+          description: Entity identifier.
+        document_count:
+          type: integer
+          description: Number of articles mentioning this entity.
+        sentiment_avg:
+          type: number
+          format: float
+          description: Average sentiment score.
+        relevance_score:
+          type: number
+          format: float
+          description: Trending relevance score.
     NewsAggregationResponse:
       type: object
       properties:
@@ -442,6 +480,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/EntityStats'
+    TrendingResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrendingEntity'
     Highlight:
       type: object
       properties:
@@ -455,6 +502,21 @@ components:
         highlighted_in:
           type: string
           description: Article section where highlight appears.
+    Meta:
+      type: object
+      properties:
+        found:
+          type: integer
+          description: Total number of records matching the query.
+        returned:
+          type: integer
+          description: Number of records returned in this response.
+        limit:
+          type: integer
+          description: Maximum records per page.
+        page:
+          type: integer
+          description: Current page number.
     NewsEntity:
       type: object
       properties:
@@ -506,19 +568,6 @@ components:
         language:
           type: string
           description: Primary language of the source.
-    EntityStats:
-      type: object
-      properties:
-        entity_key:
-          type: string
-          description: Entity identifier (symbol or key).
-        total_documents:
-          type: integer
-          description: Total number of articles mentioning this entity.
-        sentiment_avg:
-          type: number
-          format: float
-          description: Average sentiment score across all articles.
     SourcesResponse:
       type: object
       properties:
@@ -528,38 +577,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NewsSource'
-    NewsStatsResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: object
-          description: Date-keyed time series of entity stats.
-    TrendingResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrendingEntity'
-    Meta:
-      type: object
-      properties:
-        found:
-          type: integer
-          description: Total number of records matching the query.
-        returned:
-          type: integer
-          description: Number of records returned in this response.
-        limit:
-          type: integer
-          description: Maximum records per page.
-        page:
-          type: integer
-          description: Current page number.
     NewsResponse:
       type: object
       properties:
@@ -569,23 +586,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NewsArticle'
-    TrendingEntity:
-      type: object
-      properties:
-        entity_key:
-          type: string
-          description: Entity identifier.
-        document_count:
-          type: integer
-          description: Number of articles mentioning this entity.
-        sentiment_avg:
-          type: number
-          format: float
-          description: Average sentiment score.
-        relevance_score:
-          type: number
-          format: float
-          description: Trending relevance score.
   securitySchemes:
     ApiToken:
       type: apiKey

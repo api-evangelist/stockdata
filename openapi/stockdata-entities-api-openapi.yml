@@ -122,14 +122,6 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
-    IndustryListResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-          description: List of supported industry classification strings.
     Entity:
       type: object
       properties:
@@ -168,15 +160,14 @@ components:
           items:
             type: string
           description: List of supported entity type strings.
-    EntitySearchResponse:
+    IndustryListResponse:
       type: object
       properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            type: string
+          description: List of supported industry classification strings.
     Meta:
       type: object
       properties:
@@ -192,6 +183,15 @@ components:
         page:
           type: integer
           description: Current page number.
+    EntitySearchResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
   securitySchemes:
     ApiToken:
       type: apiKey

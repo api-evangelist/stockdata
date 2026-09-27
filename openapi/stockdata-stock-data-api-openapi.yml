@@ -310,7 +310,7 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
-    DividendsResponse:
+    IntradayResponse:
       type: object
       properties:
         meta:
@@ -318,40 +318,8 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Dividend'
-    OHLCV:
-      type: object
-      properties:
-        date:
-          type: string
-          format: date-time
-          description: Timestamp of the data point.
-        ticker:
-          type: string
-          description: Stock ticker symbol.
-        open:
-          type: number
-          format: float
-          description: Opening price.
-        high:
-          type: number
-          format: float
-          description: High price.
-        low:
-          type: number
-          format: float
-          description: Low price.
-        close:
-          type: number
-          format: float
-          description: Closing price.
-        volume:
-          type: integer
-          description: Trading volume.
-        is_extended_hours:
-          type: boolean
-          description: Whether data is from extended hours.
-    QuoteResponse:
+            $ref: '#/components/schemas/OHLCV'
+    EodResponse:
       type: object
       properties:
         meta:
@@ -359,7 +327,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Quote'
+            $ref: '#/components/schemas/OHLCV'
     SplitsResponse:
       type: object
       properties:
@@ -369,6 +337,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Split'
+    Meta:
+      type: object
+      properties:
+        found:
+          type: integer
+          description: Total number of records matching the query.
+        returned:
+          type: integer
+          description: Number of records returned in this response.
+        limit:
+          type: integer
+          description: Maximum records per page.
+        page:
+          type: integer
+          description: Current page number.
+    QuoteResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quote'
     Quote:
       type: object
       properties:
@@ -428,24 +420,20 @@ components:
           type: number
           format: float
           description: Previous day's closing price.
-    EodResponse:
+    Dividend:
       type: object
       properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OHLCV'
-    IntradayResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OHLCV'
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        date:
+          type: string
+          format: date
+          description: Dividend payment date.
+        amount:
+          type: number
+          format: float
+          description: Dividend amount per share.
     Split:
       type: object
       properties:
@@ -465,35 +453,47 @@ components:
         ratio:
           type: string
           description: Human-readable split ratio (e.g., 4:1).
-    Dividend:
+    OHLCV:
       type: object
       properties:
+        date:
+          type: string
+          format: date-time
+          description: Timestamp of the data point.
         ticker:
           type: string
           description: Stock ticker symbol.
-        date:
-          type: string
-          format: date
-          description: Dividend payment date.
-        amount:
+        open:
           type: number
           format: float
-          description: Dividend amount per share.
-    Meta:
+          description: Opening price.
+        high:
+          type: number
+          format: float
+          description: High price.
+        low:
+          type: number
+          format: float
+          description: Low price.
+        close:
+          type: number
+          format: float
+          description: Closing price.
+        volume:
+          type: integer
+          description: Trading volume.
+        is_extended_hours:
+          type: boolean
+          description: Whether data is from extended hours.
+    DividendsResponse:
       type: object
       properties:
-        found:
-          type: integer
-          description: Total number of records matching the query.
-        returned:
-          type: integer
-          description: Number of records returned in this response.
-        limit:
-          type: integer
-          description: Maximum records per page.
-        page:
-          type: integer
-          description: Current page number.
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dividend'
   securitySchemes:
     ApiToken:
       type: apiKey
