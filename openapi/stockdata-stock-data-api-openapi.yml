@@ -310,57 +310,25 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
-    IntradayResponse:
+    Split:
       type: object
       properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OHLCV'
-    EodResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OHLCV'
-    SplitsResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Split'
-    Meta:
-      type: object
-      properties:
-        found:
-          type: integer
-          description: Total number of records matching the query.
-        returned:
-          type: integer
-          description: Number of records returned in this response.
-        limit:
-          type: integer
-          description: Maximum records per page.
-        page:
-          type: integer
-          description: Current page number.
-    QuoteResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Quote'
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        date:
+          type: string
+          format: date
+          description: Date of the split.
+        numerator:
+          type: number
+          description: Split numerator.
+        denominator:
+          type: number
+          description: Split denominator.
+        ratio:
+          type: string
+          description: Human-readable split ratio (e.g., 4:1).
     Quote:
       type: object
       properties:
@@ -420,39 +388,6 @@ components:
           type: number
           format: float
           description: Previous day's closing price.
-    Dividend:
-      type: object
-      properties:
-        ticker:
-          type: string
-          description: Stock ticker symbol.
-        date:
-          type: string
-          format: date
-          description: Dividend payment date.
-        amount:
-          type: number
-          format: float
-          description: Dividend amount per share.
-    Split:
-      type: object
-      properties:
-        ticker:
-          type: string
-          description: Stock ticker symbol.
-        date:
-          type: string
-          format: date
-          description: Date of the split.
-        numerator:
-          type: number
-          description: Split numerator.
-        denominator:
-          type: number
-          description: Split denominator.
-        ratio:
-          type: string
-          description: Human-readable split ratio (e.g., 4:1).
     OHLCV:
       type: object
       properties:
@@ -494,6 +429,71 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Dividend'
+    Dividend:
+      type: object
+      properties:
+        ticker:
+          type: string
+          description: Stock ticker symbol.
+        date:
+          type: string
+          format: date
+          description: Dividend payment date.
+        amount:
+          type: number
+          format: float
+          description: Dividend amount per share.
+    SplitsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Split'
+    EodResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OHLCV'
+    Meta:
+      type: object
+      properties:
+        found:
+          type: integer
+          description: Total number of records matching the query.
+        returned:
+          type: integer
+          description: Number of records returned in this response.
+        limit:
+          type: integer
+          description: Maximum records per page.
+        page:
+          type: integer
+          description: Current page number.
+    IntradayResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OHLCV'
+    QuoteResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Quote'
   securitySchemes:
     ApiToken:
       type: apiKey

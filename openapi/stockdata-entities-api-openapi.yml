@@ -160,14 +160,15 @@ components:
           items:
             type: string
           description: List of supported entity type strings.
-    IndustryListResponse:
+    EntitySearchResponse:
       type: object
       properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
         data:
           type: array
           items:
-            type: string
-          description: List of supported industry classification strings.
+            $ref: '#/components/schemas/Entity'
     Meta:
       type: object
       properties:
@@ -183,15 +184,14 @@ components:
         page:
           type: integer
           description: Current page number.
-    EntitySearchResponse:
+    IndustryListResponse:
       type: object
       properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
         data:
           type: array
           items:
-            $ref: '#/components/schemas/Entity'
+            type: string
+          description: List of supported industry classification strings.
   securitySchemes:
     ApiToken:
       type: apiKey

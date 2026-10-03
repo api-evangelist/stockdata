@@ -385,14 +385,63 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
-    NewsStatsResponse:
+    TrendingResponse:
       type: object
       properties:
         meta:
           $ref: '#/components/schemas/Meta'
         data:
-          type: object
-          description: Date-keyed time series of entity stats.
+          type: array
+          items:
+            $ref: '#/components/schemas/TrendingEntity'
+    SourcesResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsSource'
+    EntityStats:
+      type: object
+      properties:
+        entity_key:
+          type: string
+          description: Entity identifier (symbol or key).
+        total_documents:
+          type: integer
+          description: Total number of articles mentioning this entity.
+        sentiment_avg:
+          type: number
+          format: float
+          description: Average sentiment score across all articles.
+    NewsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/NewsArticle'
+    TrendingEntity:
+      type: object
+      properties:
+        entity_key:
+          type: string
+          description: Entity identifier.
+        document_count:
+          type: integer
+          description: Number of articles mentioning this entity.
+        sentiment_avg:
+          type: number
+          format: float
+          description: Average sentiment score.
+        relevance_score:
+          type: number
+          format: float
+          description: Trending relevance score.
     NewsArticle:
       type: object
       properties:
@@ -441,54 +490,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NewsArticle'
-    EntityStats:
-      type: object
-      properties:
-        entity_key:
-          type: string
-          description: Entity identifier (symbol or key).
-        total_documents:
-          type: integer
-          description: Total number of articles mentioning this entity.
-        sentiment_avg:
-          type: number
-          format: float
-          description: Average sentiment score across all articles.
-    TrendingEntity:
-      type: object
-      properties:
-        entity_key:
-          type: string
-          description: Entity identifier.
-        document_count:
-          type: integer
-          description: Number of articles mentioning this entity.
-        sentiment_avg:
-          type: number
-          format: float
-          description: Average sentiment score.
-        relevance_score:
-          type: number
-          format: float
-          description: Trending relevance score.
-    NewsAggregationResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/EntityStats'
-    TrendingResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/TrendingEntity'
     Highlight:
       type: object
       properties:
@@ -502,6 +503,14 @@ components:
         highlighted_in:
           type: string
           description: Article section where highlight appears.
+    NewsStatsResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: object
+          description: Date-keyed time series of entity stats.
     Meta:
       type: object
       properties:
@@ -556,6 +565,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Highlight'
+    NewsAggregationResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EntityStats'
     NewsSource:
       type: object
       properties:
@@ -568,24 +586,6 @@ components:
         language:
           type: string
           description: Primary language of the source.
-    SourcesResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NewsSource'
-    NewsResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/NewsArticle'
   securitySchemes:
     ApiToken:
       type: apiKey
