@@ -122,6 +122,46 @@ paths:
           description: Invalid or missing API token.
 components:
   schemas:
+    EntitySearchResponse:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/Meta'
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Entity'
+    IndustryListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+          description: List of supported industry classification strings.
+    TypeListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+          description: List of supported entity type strings.
+    Meta:
+      type: object
+      properties:
+        found:
+          type: integer
+          description: Total number of records matching the query.
+        returned:
+          type: integer
+          description: Number of records returned in this response.
+        limit:
+          type: integer
+          description: Maximum records per page.
+        page:
+          type: integer
+          description: Current page number.
     Entity:
       type: object
       properties:
@@ -152,46 +192,6 @@ components:
         currency:
           type: string
           description: Trading currency.
-    TypeListResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-          description: List of supported entity type strings.
-    EntitySearchResponse:
-      type: object
-      properties:
-        meta:
-          $ref: '#/components/schemas/Meta'
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Entity'
-    Meta:
-      type: object
-      properties:
-        found:
-          type: integer
-          description: Total number of records matching the query.
-        returned:
-          type: integer
-          description: Number of records returned in this response.
-        limit:
-          type: integer
-          description: Maximum records per page.
-        page:
-          type: integer
-          description: Current page number.
-    IndustryListResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: string
-          description: List of supported industry classification strings.
   securitySchemes:
     ApiToken:
       type: apiKey
