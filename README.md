@@ -1,4 +1,4 @@
-# StockData (stockdata)
+# StockData
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,63 +66,182 @@
 
 StockData.org provides real-time, intraday, and historical stock, forex, and cryptocurrency data along with global financial news and sentiment analysis. The REST API delivers market data for US-listed stocks including OHLCV data, splits, dividends, and entity-level news sentiment from 5,000+ sources in 30+ languages.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/stockdata/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/stockdata/refs/heads/main/apis.yml)
+**Areas:** Finance · Financial Data · Stock Market · Market Data · News · Sentiment Analysis
 
-## Scope
+## StockData on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for StockData is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/stockdata/](https://apis.io/providers/stockdata/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (3)
 
-- Finance
-- Financial Data
-- Stock Market
-- Market Data
-- News
-- Sentiment Analysis
+- [StockData Entities API](https://apis.io/apis/stockdata/stockdata-entities-api/) — Entity search and metadata
+- [StockData News API](https://apis.io/apis/stockdata/stockdata-news-api/) — Global financial news with sentiment analysis
+- [StockData Stock Data API](https://apis.io/apis/stockdata/stockdata-stock-data-api/) — Real-time and historical stock market price data
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### StockData API
+Model Context Protocol servers that expose the API to agents.
 
-The StockData REST API provides free and paid access to real-time stock quotes, intraday price data (adjusted and unadjusted), end-of-day historical data, splits, dividends, financial news with sentiment analysis, trending entities, and entity search. All endpoints require an api_token parameter.
+- [stockdata](https://apis.io/servers/stockdata/stockdata/)
 
-- **Human URL:** [https://www.stockdata.org/](https://www.stockdata.org/)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Finance
-- Financial Data
-- Stock Market
-- Market Data
-- News
-- Sentiment Analysis
+- [Stockdata Agentic Access](https://apis.io/agentic-access/stockdata/stockdata-agentic-access/)
 
-#### Properties
+#### JSON Schema (2)
 
-- [Documentation](https://www.stockdata.org/documentation)
+The data models the API reads and writes.
+
+- [StockData News Article](https://apis.io/schemas/stockdata/stockdata-news-article/)
+- [StockData Quote](https://apis.io/schemas/stockdata/stockdata-quote/)
+
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Stockdata Quote Structure](https://apis.io/json-structure/stockdata/stockdata-quote-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Stockdata Context](https://apis.io/jsonld/stockdata/stockdata-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [StockData Vocabulary](https://apis.io/vocabularies/stockdata/stockdata-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Stockdata Get Financial News Example](https://apis.io/examples/stockdata/stockdata-get-financial-news-example/)
+- [Stockdata Get Stock Quote Example](https://apis.io/examples/stockdata/stockdata-get-stock-quote-example/)
+
+#### Collections (7)
+
+Postman and Open Collection request collections.
+
+- [StockData API](https://apis.io/collections/stockdata/open-stockdata/)
+- [StockData Entities API](https://apis.io/collections/stockdata/open-stockdata-entities-api/)
+- [StockData Entities News API](https://apis.io/collections/stockdata/open-stockdata-news-api/)
+- [StockData Entities Stock Data API](https://apis.io/collections/stockdata/open-stockdata-stock-data-api/)
+- [StockData Entities API](https://apis.io/collections/stockdata/postman-stockdata-entities-api/)
+- [StockData Entities News API](https://apis.io/collections/stockdata/postman-stockdata-news-api/)
+- [StockData Entities Stock Data API](https://apis.io/collections/stockdata/postman-stockdata-stock-data-api/)
+
+#### Overlays (3)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Stockdata Entities Api Overlay](https://apis.io/overlays/stockdata/stockdata-entities-api-overlay/)
+- [Stockdata News Api Overlay](https://apis.io/overlays/stockdata/stockdata-news-api-overlay/)
+- [Stockdata Stock Data Api Overlay](https://apis.io/overlays/stockdata/stockdata-stock-data-api-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [StockData — jsonschema rules](https://apis.io/rules/stockdata/stockdata-jsonschema-spectral-rules/)
+- [StockData API Rules](https://apis.io/rules/stockdata/stockdata-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Stockdata Authentication](https://apis.io/security/stockdata/stockdata-authentication/)
+- [Stockdata Domain Security](https://apis.io/security/stockdata/stockdata-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Stockdata Plans Pricing](https://apis.io/plans/stockdata/stockdata-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Stockdata Rate Limits](https://apis.io/rate-limits/stockdata/stockdata-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Stockdata Finops](https://apis.io/finops/stockdata/stockdata-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.stockdata.org/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/stockdata/refs/heads/main/openapi/stockdata-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/stockdata.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/stockdata.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/stockdata-org)
-- [Portal](https://www.stockdata.org/)
 - [Documentation](https://www.stockdata.org/documentation)
-- [Sign Up](https://www.stockdata.org/register)
-- [Website](https://www.stockdata.org/)
+- [Getting started](https://www.stockdata.org/documentation#introduction)
+- [API reference](https://www.stockdata.org/documentation)
 - [Pricing](https://www.stockdata.org/pricing)
+- [Support](https://www.stockdata.org/contact)
+- [Terms of service](https://www.stockdata.org/tos)
+- [Privacy policy](https://www.stockdata.org/privacy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 56.0** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 59.0 |
+| Contract governance | 31.8 |
+| Operational transparency | 31.6 |
+| Developer ergonomics | 57.7 |
+| Access clarity | 69.7 |
+
+**Agent readiness 29.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 28.7** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/stockdata/](https://apis.io/providers/stockdata/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for StockData: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/stockdata/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
