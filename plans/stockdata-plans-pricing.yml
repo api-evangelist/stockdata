@@ -1,0 +1,160 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://www.stockdata.org/pricing
+sources:
+- https://www.stockdata.org/pricing
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T141238
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: Monthly and yearly (20% discount) tiers for stock data API, plus custom quote plan.
+plan_count: 10
+currency: USD
+plans:
+- name: Free
+  price_text: $ 0.00 /mo
+  price: 0
+  currency: USD
+  period: month
+  included_quota: 100 requests daily; 3 symbols / stock price request; 1 symbol / intraday request; 2
+    articles / news request; 1 month of intraday data; 1 month of EOD data
+- name: Basic
+  price_text: $ 29.00 /mo
+  price: 29
+  currency: USD
+  period: month
+  included_quota: 2,500 requests daily; 10 symbols / stock price request; 1 year of intraday and EOD data
+- name: Standard
+  price_text: $ 49.00 /mo
+  price: 49
+  currency: USD
+  period: month
+  included_quota: 10,000 requests daily; 25 symbols / stock price request; 8+ years of data
+- name: Pro
+  price_text: $ 99.00 /mo
+  price: 99
+  currency: USD
+  period: month
+  included_quota: 25,000 requests daily; 100 symbols / stock price request
+- name: Pro 50K
+  price_text: $ 199.00 /mo
+  price: 199
+  currency: USD
+  period: month
+  included_quota: 50,000 requests daily
+- name: Basic (annual)
+  price_text: $24.00/mo if billed annually
+  price: 24
+  currency: USD
+  period: month
+- name: Standard (annual)
+  price_text: $41.00/mo if billed annually
+  price: 41
+  currency: USD
+  period: month
+- name: Pro (annual)
+  price_text: $83.00/mo if billed annually
+  price: 83
+  currency: USD
+  period: month
+- name: Pro 50K (annual)
+  price_text: $166.00/mo if billed annually
+  price: 166
+  currency: USD
+  period: month
+- name: CUSTOM PLAN
+  price_text: Request Quote
+  period: none
+  included_quota: Custom daily requests; Custom symbols per request; Custom SLA
+rate_limit_statements:
+- 100 requests daily
+- 2,500 requests daily
+- 10,000 requests daily
+- 25,000 requests daily
+- 50,000 requests daily
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Basic
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Standard
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Pro
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Pro 50K
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Basic (annual)
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Standard (annual)
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Pro (annual)
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: Pro 50K (annual)
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods:
+    - month
+  - name: CUSTOM PLAN
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
