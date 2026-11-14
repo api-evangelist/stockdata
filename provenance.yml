@@ -5,9 +5,18 @@ artifacts:
   agentic-access/stockdata-agentic-access.yml:
     method: generated
     evidence: declared in the artifact
+  ai-preferences/stockdata-ai-preferences.yml:
+    method: harvested
+    evidence: declared in the artifact
   authentication/stockdata-authentication.yml:
     method: searched
     evidence: declared in the artifact
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
   collections/stockdata-entities-api.opencollection.json:
     method: derived
     evidence: openapi/stockdata-entities-api
@@ -38,8 +47,14 @@ artifacts:
   conventions/stockdata-conventions.yml:
     method: searched
     evidence: declared in the artifact
+  data-license/stockdata-data-license.yml:
+    method: harvested
+    evidence: declared in the artifact
   data-model/stockdata-data-model.yml:
     method: derived
+    evidence: declared in the artifact
+  eligibility/stockdata-eligibility.yml:
+    method: harvested
     evidence: declared in the artifact
   errors/stockdata-problem-types.yml:
     method: searched
@@ -77,7 +92,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -143,6 +158,9 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/stockdata-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -189,6 +207,9 @@ artifacts:
   postman/stockdata-stock-data-api.postman_collection.json:
     method: derived
     evidence: openapi/stockdata-stock-data-api
+  privacy/stockdata-privacy-policy.yml:
+    method: harvested
+    evidence: declared in the artifact
   rate-limits/stockdata-rate-limits.yml:
     method: searched
     evidence: declared in the artifact
@@ -215,6 +236,9 @@ artifacts:
     evidence: declared in the artifact
   sla/stockdata-sla.yml:
     method: generated
+    evidence: declared in the artifact
+  terms/stockdata-terms-of-service.yml:
+    method: harvested
     evidence: declared in the artifact
   vocabulary/stockdata-vocabulary.yml:
     method: unknown
